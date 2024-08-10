@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://w6ftkpi62suj"]
+
+[ext_resource type="PackedScene" uid="uid://du3wvoveahxcq" path="res://Scenes/UI/DeathScreen.tscn" id="1_5tmjh"]
+[ext_resource type="PackedScene" uid="uid://db6lngy86c1jy" path="res://Scenes/UI/StartScreen.tscn" id="2_500vx"]
+[ext_resource type="PackedScene" uid="uid://xcsv7me8ooh3" path="res://Scenes/UI/VictoryScreen.tscn" id="3_3nbp5"]
+
+[node name="Main" type="Node"]
+
+[node name="DeathScreen" parent="." instance=ExtResource("1_5tmjh")]
+visible = false
+
+[node name="StartScreen" parent="." instance=ExtResource("2_500vx")]
+
+[node name="VictoryScreen" parent="." instance=ExtResource("3_3nbp5")]
+visible = false

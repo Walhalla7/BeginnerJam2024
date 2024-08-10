@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://bl8s5lkgtmlji"]
+
+[ext_resource type="PackedScene" uid="uid://kars26pa8oho" path="res://Scenes/Protagonist/Protagonist.tscn" id="1_658ld"]
+[ext_resource type="PackedScene" uid="uid://leme7iedb3re" path="res://Scenes/World/AlternativeWorld.tscn" id="1_liyoy"]
+[ext_resource type="PackedScene" uid="uid://brsokcekyw4n3" path="res://Scenes/World/BaseWorld.tscn" id="2_4ftwo"]
+[ext_resource type="PackedScene" uid="uid://bv5qg87q47pub" path="res://Scenes/Enemies/TestEnemy.tscn" id="4_bbx3x"]
+
+[node name="CombinedRealms" type="Node"]
+process_mode = 3
+
+[node name="AlternativeWorld" parent="." instance=ExtResource("1_liyoy")]
+visible = false
+
+[node name="BaseWorld" parent="." instance=ExtResource("2_4ftwo")]
+
+[node name="Protagonist" parent="." instance=ExtResource("1_658ld")]
+position = Vector2(549, 319)
+scale = Vector2(0.2, 0.2)
+collision_mask = 5
+move_speed = 20.0
+
+[node name="Camera2D" type="Camera2D" parent="Protagonist"]
+zoom = Vector2(5, 5)
+
+[node name="TestEnemy" parent="." instance=ExtResource("4_bbx3x")]
+position = Vector2(433, 308)
