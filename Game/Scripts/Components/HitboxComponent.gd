@@ -11,6 +11,7 @@ func decrement_health(damage: DamageComponent):
 
 # When the collision for an object to do damage enters the obj to be damaged
 func _on_body_entered(body):
+	print(body.name)
 	if body.damage_component:
 		decrement_health(body.damage_component)
 

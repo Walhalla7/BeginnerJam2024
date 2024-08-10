@@ -10,7 +10,7 @@
 size = Vector2(128, 128)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dm6tg"]
-size = Vector2(128, 128)
+size = Vector2(150, 150)
 
 [node name="Protagonist" type="CharacterBody2D"]
 process_mode = 3
