@@ -2,7 +2,7 @@ extends StateMachine
 
 #function to handle jump input
 func _input(event):
-	if event.is_action("ChangeWorld") && parent.is_Grounded:
+	if event.is_action_released("ChangeWorld"):
 			SignalBus.emit_signal("changeWorld")
 
 func _ready():
@@ -15,21 +15,21 @@ func _ready():
 func _state_logic(delta):
 	parent._handle_move_input()
 	parent._apply_movement()
-	parent._apply_gravity(delta)
 	#uncomment below for testing
-	print(states.keys()[state])
+	#print(states.keys()[state])
+	#print("x: ", parent.velocity.x, ", y: ", parent.velocity.y)
 
 #conditions for transitioning between states
 func _get_transition(delta):
 	match state:
 		#Leaving idle state
 		states.IDLE:
-			if parent.velocity.x != 0 || parent.velocity.y != 0:
+			if abs(int(parent.velocity.x)) != 0 || abs(int(parent.velocity.y)) != 0:
 				return states.WALKING
 				
 		#Leaving Walking state
 		states.WALKING:
-			if parent.velocity.x == 0 && parent.velocity.y == 0:
+			if abs(int(parent.velocity.x)) < 0.9 && abs(int(parent.velocity.y)) < 0.9 :
 				return states.IDLE
 				
 	return null

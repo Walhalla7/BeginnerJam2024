@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://6wa87p4g41rc"]
+
+[ext_resource type="Script" path="res://Scripts/Components/RealmShiftComponent.gd" id="1_w0dfp"]
+
+[node name="RealmShiftComponent" type="Node"]
+process_mode = 3
+script = ExtResource("1_w0dfp")
