@@ -5,8 +5,6 @@ var speed = 190
 @export var player_velocity: Vector2 = Vector2.ZERO
 @export var group_name: String = "player"
 
-@onready var damage_component = $DamageComponent
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	area_entered.connect(_on_area_entered)
