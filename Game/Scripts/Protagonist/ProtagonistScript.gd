@@ -4,8 +4,12 @@ extends CharacterBody2D
 @onready var sprite = $Sprite2D
 
 #Movement variables
-@export var move_speed = 5.0
+@export var move_speed = 20.0
 @export var lerp_speed = 0.2
+
+
+var projectile = preload("res://Scenes/Enemies/Projectile.tscn")
+
 #@export var JUMP_VELOCITY = 7
 #var sprint_modifier = 1
 #@export var max_sprint_modifier = 2
@@ -51,3 +55,13 @@ func _ready():
 #======================================== 	Process 	==================================
 func _physics_process(delta):
 	pass
+	
+	# shooting
+	var mouse_pos = get_global_mouse_position()
+	$Marker2D.look_at(mouse_pos)
+	if Input.is_action_just_pressed("L_Click"):
+		var projectile_instance = projectile.instantiate()
+		projectile_instance.player_velocity = velocity
+		projectile_instance.rotation = $Marker2D.rotation
+		projectile_instance.position = position		
+		add_sibling(projectile_instance)

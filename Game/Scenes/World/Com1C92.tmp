@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://leme7iedb3re" path="res://Scenes/World/AlternativeWorld.tscn" id="1_liyoy"]
 [ext_resource type="PackedScene" uid="uid://brsokcekyw4n3" path="res://Scenes/World/BaseWorld.tscn" id="2_4ftwo"]
 [ext_resource type="PackedScene" uid="uid://bv5qg87q47pub" path="res://Scenes/Enemies/TestEnemy.tscn" id="4_bbx3x"]
-[ext_resource type="Script" path="res://Scripts/Enemies/AltRealmTracking.gd" id="5_1fn5w"]
+[ext_resource type="Script" path="res://Scripts/Enemies/TrackingTest_BAD.gd" id="5_1fn5w"]
 [ext_resource type="PackedScene" uid="uid://cskiumpvyp11y" path="res://Scenes/Enemies/TrackingEnemy.tscn" id="5_rdsfo"]
 [ext_resource type="PackedScene" uid="uid://dupxqfrbh63a8" path="res://Scenes/Enemies/ChargingEnemy.tscn" id="6_1s2y1"]
 [ext_resource type="Texture2D" uid="uid://bv5fn7nb50mwj" path="res://icon.svg" id="6_mym8p"]
