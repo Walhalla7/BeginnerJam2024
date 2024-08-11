@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dupxqfrbh63a8"]
+[gd_scene load_steps=11 format=3 uid="uid://dupxqfrbh63a8"]
 
 [ext_resource type="Script" path="res://Scripts/Enemies/ChargingEnemy.gd" id="1_7ipoo"]
 [ext_resource type="Texture2D" uid="uid://bv5fn7nb50mwj" path="res://icon.svg" id="1_uhcq8"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://b7t81nu7dhqu8" path="res://Scenes/Components/DamageComponent.tscn" id="3_mdqnw"]
 [ext_resource type="PackedScene" uid="uid://bjnu3j1oenm1i" path="res://Scenes/Components/HitboxComponent.tscn" id="5_3dajx"]
 [ext_resource type="PackedScene" uid="uid://s0awo0u8htxb" path="res://Scenes/Components/HealthComponent.tscn" id="6_xwxrc"]
+[ext_resource type="Texture2D" uid="uid://caydt7dnhise2" path="res://Assets/Temporary/pumpkin1-1.png" id="7_8x0bb"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_62e5d"]
 
@@ -34,8 +35,6 @@ health_component = NodePath("../HealthComponent")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
 shape = SubResource("CircleShape2D_62e5d")
 
-[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 material = SubResource("CanvasItemMaterial_vpaq3")
 position = Vector2(1.90735e-06, 2.38419e-07)
@@ -47,7 +46,10 @@ sprite_frames = SubResource("SpriteFrames_kj7hh")
 [node name="Timer" type="Timer" parent="."]
 autostart = true
 
-[node name="RealmShiftComponent" parent="." instance=ExtResource("2_0nadn")]
+[node name="RealmShiftComponent" parent="." node_paths=PackedStringArray("sprite", "AltSprite") instance=ExtResource("2_0nadn")]
+sprite = NodePath("../AnimatedSprite2D")
+AltSprite = NodePath("../Sprite2D")
+thisRealm = "Alt1"
 
 [node name="DamageComponent" parent="." instance=ExtResource("3_mdqnw")]
 
@@ -59,5 +61,9 @@ collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_62e5d")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.02, 0.02)
+texture = ExtResource("7_8x0bb")
 
 [connection signal="area_entered" from="HitboxComponent" to="HitboxComponent" method="_on_area_entered"]

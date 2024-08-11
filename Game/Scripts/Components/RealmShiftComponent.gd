@@ -9,9 +9,8 @@ class_name RealmComponent
 
 #export variables 
 @export_category("Sprite")
-@export var map: TileMap
-@export var sprite: Sprite2D
-@export var AltSprite: Sprite2D
+@export var sprite: Node2D
+@export var AltSprite: Node2D
 
 @export_category("Realm")
 @export_enum("Default", "Alt1", "Alt2") var thisRealm:String = "Default"
@@ -64,22 +63,21 @@ func enableCollisions():
 #----------------------------------- REALMS ---------------------------------
 func hideAll():
 	if !hidden:
+		print("Hide")
 		disableCollisions()
-		if map:
-			map.visible = false
 		if sprite:
 			sprite.visible = false
 		if AltSprite:
 			AltSprite.visible = true
+		parent.process_mode = PROCESS_MODE_DISABLED
 		hidden = true
 
 func showAll():
 	if hidden:
 		enableCollisions()
-		if map:
-			map.visible = true
 		if sprite:
 			sprite.visible = true
 		if AltSprite:
 			AltSprite.visible = false
+		parent.process_mode = PROCESS_MODE_INHERIT
 		hidden = false

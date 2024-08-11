@@ -19,7 +19,7 @@ func _input(event):
 			2:
 				SignalBus.emit_signal("changeWorld", "Default")
 			3:
-				SignalBus.emit_signal("changeWorld", "Alt3")
+				SignalBus.emit_signal("changeWorld", "Alt2")
 		
 	if event.is_action_released("ChangeWorld1"):
 		currRealm += 1
@@ -31,7 +31,7 @@ func _input(event):
 			2:
 				SignalBus.emit_signal("changeWorld", "Default")
 			3:
-				SignalBus.emit_signal("changeWorld", "Alt3")
+				SignalBus.emit_signal("changeWorld", "Alt2")
 
 func _ready():
 	#we add all the posible states to the list 
