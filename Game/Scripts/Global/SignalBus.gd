@@ -1,6 +1,6 @@
 extends Node
 
-signal changeWorld()
+signal changeWorld(newRealm)
 signal intro_done()
 signal Victory()
 signal game_over()

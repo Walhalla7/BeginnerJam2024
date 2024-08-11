@@ -1,0 +1,62 @@
+[gd_scene load_steps=9 format=3 uid="uid://bylfpkbqkg2sn"]
+
+[ext_resource type="Script" path="res://Scripts/Enemies/RangedEnemy.gd" id="1_w1h8l"]
+[ext_resource type="Texture2D" uid="uid://bv5fn7nb50mwj" path="res://icon.svg" id="2_v40sm"]
+[ext_resource type="PackedScene" uid="uid://6wa87p4g41rc" path="res://Scenes/Components/RealmShiftComponent.tscn" id="3_t4r6d"]
+[ext_resource type="PackedScene" uid="uid://b7t81nu7dhqu8" path="res://Scenes/Components/DamageComponent.tscn" id="4_dk2lx"]
+[ext_resource type="Texture2D" uid="uid://caydt7dnhise2" path="res://Assets/Temporary/pumpkin1-1.png" id="5_4e4wa"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fs2bh"]
+radius = 11.0
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_gr3ws"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hig8p"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_v40sm")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="RangedEnemy" type="CharacterBody2D" groups=["Enemy"]]
+process_mode = 1
+modulate = Color(0.552118, 0.562134, 0, 1)
+motion_mode = 1
+wall_min_slide_angle = 0.0
+script = ExtResource("1_w1h8l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_fs2bh")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("CanvasItemMaterial_gr3ws")
+position = Vector2(1.90735e-06, 2.38419e-07)
+scale = Vector2(0.15625, 0.15625)
+sprite_frames = SubResource("SpriteFrames_hig8p")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="RealmShiftComponent" parent="." node_paths=PackedStringArray("sprite", "AltSprite") instance=ExtResource("3_t4r6d")]
+sprite = NodePath("../AnimatedSprite2D")
+AltSprite = NodePath("../Sprite2D")
+
+[node name="DamageComponent" parent="." instance=ExtResource("4_dk2lx")]
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+rotation = 1.5708
+target_position = Vector2(0, 3000)
+collision_mask = 7
+collide_with_areas = true
+
+[node name="Marker2D" type="Marker2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.01, 0.01)
+texture = ExtResource("5_4e4wa")

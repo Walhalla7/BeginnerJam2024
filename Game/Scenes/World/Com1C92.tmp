@@ -1,10 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://bl8s5lkgtmlji"]
+[gd_scene load_steps=14 format=3 uid="uid://bl8s5lkgtmlji"]
 
 [ext_resource type="PackedScene" uid="uid://kars26pa8oho" path="res://Scenes/Protagonist/Protagonist.tscn" id="1_658ld"]
 [ext_resource type="PackedScene" uid="uid://leme7iedb3re" path="res://Scenes/World/AlternativeWorld.tscn" id="1_liyoy"]
 [ext_resource type="PackedScene" uid="uid://brsokcekyw4n3" path="res://Scenes/World/BaseWorld.tscn" id="2_4ftwo"]
+[ext_resource type="PackedScene" uid="uid://bv5qg87q47pub" path="res://Scenes/Enemies/TestEnemy.tscn" id="4_bbx3x"]
+[ext_resource type="Script" path="res://Scripts/Enemies/TrackingTest_BAD.gd" id="5_1fn5w"]
 [ext_resource type="PackedScene" uid="uid://cskiumpvyp11y" path="res://Scenes/Enemies/TrackingEnemy.tscn" id="5_rdsfo"]
 [ext_resource type="PackedScene" uid="uid://dupxqfrbh63a8" path="res://Scenes/Enemies/ChargingEnemy.tscn" id="6_1s2y1"]
+[ext_resource type="Texture2D" uid="uid://bv5fn7nb50mwj" path="res://icon.svg" id="6_mym8p"]
 [ext_resource type="PackedScene" uid="uid://bylfpkbqkg2sn" path="res://Scenes/Enemies/RangedEnemy.tscn" id="9_ywtop"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_8mggn"]
@@ -12,6 +15,21 @@ vertices = PackedVector2Array(711, 309, 711, 274, 1140, 11, 1140, 645, 20, 20, 6
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 2, 1, 5), PackedInt32Array(6, 4, 5, 7), PackedInt32Array(5, 8, 7), PackedInt32Array(6, 7, 9), PackedInt32Array(3, 6, 9, 10), PackedInt32Array(0, 3, 10, 11)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(11, 11, 1150, 1, 1150, 656, 4, 654)])
 source_geometry_group_name = &"navigation_polygon_source_group"
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_tmk1b"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p6f4p"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_mym8p")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8tsyh"]
 
 [node name="CombinedRealms" type="Node"]
 process_mode = 3
@@ -39,7 +57,28 @@ move_speed = 100.0
 [node name="Camera2D" type="Camera2D" parent="Protagonist"]
 zoom = Vector2(5, 5)
 
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="." node_paths=PackedStringArray("tracking_enemy")]
+material = SubResource("CanvasItemMaterial_tmk1b")
+position = Vector2(530.719, 304.094)
+scale = Vector2(0.156, 0.156)
+sprite_frames = SubResource("SpriteFrames_p6f4p")
+script = ExtResource("5_1fn5w")
+tracking_enemy = NodePath("../TrackingEnemy")
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="." node_paths=PackedStringArray("tracking_enemy")]
+material = SubResource("CanvasItemMaterial_tmk1b")
+position = Vector2(459, 263)
+scale = Vector2(0.15625, 0.15625)
+sprite_frames = SubResource("SpriteFrames_p6f4p")
+script = ExtResource("5_1fn5w")
+tracking_enemy = NodePath("../ChargingEnemy")
+
+[node name="TestEnemy" parent="." instance=ExtResource("4_bbx3x")]
+visible = false
+position = Vector2(433, 308)
+
 [node name="TrackingEnemy" parent="." node_paths=PackedStringArray("player") instance=ExtResource("5_rdsfo")]
+visible = false
 position = Vector2(421, 243)
 player = NodePath("../Protagonist")
 
@@ -48,5 +87,19 @@ position = Vector2(629, 261)
 player = NodePath("../Protagonist")
 
 [node name="ChargingEnemy" parent="." node_paths=PackedStringArray("player") instance=ExtResource("6_1s2y1")]
-position = Vector2(599, 293)
+visible = false
+position = Vector2(650, 265)
 player = NodePath("../Protagonist")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+position = Vector2(525, 203)
+gravity_scale = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+shape = SubResource("RectangleShape2D_8tsyh")
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="RigidBody2D"]
+material = SubResource("CanvasItemMaterial_tmk1b")
+position = Vector2(3.05176e-05, 1.19209e-07)
+scale = Vector2(0.15625, 0.15625)
+sprite_frames = SubResource("SpriteFrames_p6f4p")
