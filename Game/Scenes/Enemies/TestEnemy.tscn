@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://bv5qg87q47pub"]
+[gd_scene load_steps=8 format=3 uid="uid://bv5qg87q47pub"]
 
 [ext_resource type="Script" path="res://Scripts/Enemies/TestEnemy.gd" id="1_k34tx"]
 [ext_resource type="Texture2D" uid="uid://caydt7dnhise2" path="res://Assets/Temporary/pumpkin1-1.png" id="1_x5sjr"]
 [ext_resource type="PackedScene" uid="uid://b7t81nu7dhqu8" path="res://Scenes/Components/DamageComponent.tscn" id="2_xrc7i"]
 [ext_resource type="PackedScene" uid="uid://6wa87p4g41rc" path="res://Scenes/Components/RealmShiftComponent.tscn" id="3_udum4"]
 [ext_resource type="PackedScene" uid="uid://d2l4udxxfktln" path="res://Scenes/Enemies/EnemyStateMachine.tscn" id="5_fy4s3"]
+[ext_resource type="Texture2D" uid="uid://bv5fn7nb50mwj" path="res://icon.svg" id="6_1ik41"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mr44w"]
 radius = 35.0
@@ -24,7 +25,12 @@ shape = SubResource("CircleShape2D_mr44w")
 
 [node name="DamageComponent" parent="." instance=ExtResource("2_xrc7i")]
 
-[node name="RealmShiftComponent" parent="." node_paths=PackedStringArray("collisionShape") instance=ExtResource("3_udum4")]
-collisionShape = NodePath("../CollisionShape2D")
+[node name="RealmShiftComponent" parent="." node_paths=PackedStringArray("sprite", "AltSprite") instance=ExtResource("3_udum4")]
+sprite = NodePath("../Sprite2D")
+AltSprite = NodePath("../Sprite2D2")
+thisRealm = "Alt1"
 
 [node name="EnemyStateMachine" parent="." instance=ExtResource("5_fy4s3")]
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+texture = ExtResource("6_1ik41")
