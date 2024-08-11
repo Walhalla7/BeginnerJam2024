@@ -7,6 +7,8 @@ const SPEED = 75.0
 @onready var nav_agent := $NavigationAgent2D as NavigationAgent2D
 @onready var ray_cast := $RayCast2D as RayCast2D
 
+@onready var damage_component = $DamageComponent
+
 var charging_time=0
 var charging_bool=false
 var charging_duration=3

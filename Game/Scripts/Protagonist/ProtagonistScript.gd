@@ -63,5 +63,8 @@ func _physics_process(delta):
 		var projectile_instance = projectile.instantiate()
 		projectile_instance.player_velocity = velocity
 		projectile_instance.rotation = $Marker2D.rotation
-		projectile_instance.position = position		
+		projectile_instance.position = position	
+		projectile_instance.collision_layer = 1
+		projectile_instance.collision_mask = 2|3
+		projectile_instance.group_name = "enemy"	
 		add_sibling(projectile_instance)

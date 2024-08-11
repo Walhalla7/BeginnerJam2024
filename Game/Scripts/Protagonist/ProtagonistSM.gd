@@ -1,9 +1,6 @@
 extends StateMachine
 
 #------------------------------- REALM MANAGMENT -------------------------------
-#var Q_Realm = "Alt1"
-#var E_Realm = "Alt2"
-#var Curr_Realm = "Default"
 var currRealm = 2
 
 
