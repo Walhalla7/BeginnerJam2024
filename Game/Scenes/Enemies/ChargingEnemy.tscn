@@ -1,14 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://dupxqfrbh63a8"]
+[gd_scene load_steps=9 format=3 uid="uid://dupxqfrbh63a8"]
 
 [ext_resource type="Script" path="res://Scripts/Enemies/ChargingEnemy.gd" id="1_7ipoo"]
 [ext_resource type="Texture2D" uid="uid://bv5fn7nb50mwj" path="res://icon.svg" id="1_uhcq8"]
 [ext_resource type="PackedScene" uid="uid://6wa87p4g41rc" path="res://Scenes/Components/RealmShiftComponent.tscn" id="2_0nadn"]
 [ext_resource type="PackedScene" uid="uid://b7t81nu7dhqu8" path="res://Scenes/Components/DamageComponent.tscn" id="3_mdqnw"]
-[ext_resource type="PackedScene" uid="uid://bjnu3j1oenm1i" path="res://Scenes/Components/HitboxComponent.tscn" id="5_3dajx"]
-[ext_resource type="PackedScene" uid="uid://s0awo0u8htxb" path="res://Scenes/Components/HealthComponent.tscn" id="6_xwxrc"]
 [ext_resource type="Texture2D" uid="uid://caydt7dnhise2" path="res://Assets/Temporary/pumpkin1-1.png" id="7_8x0bb"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_62e5d"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_vpaq3"]
 
@@ -23,18 +19,15 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_62e5d"]
+radius = 11.0
+
 [node name="ChargingEnemy" type="CharacterBody2D" groups=["Enemy"]]
 modulate = Color(0.00999999, 1, 0.175, 1)
 position = Vector2(16, 3)
-script = ExtResource("1_7ipoo")
-
-[node name="HitboxComponent" parent="." node_paths=PackedStringArray("health_component") groups=["enemy"] instance=ExtResource("5_3dajx")]
 collision_layer = 4
 collision_mask = 3
-health_component = NodePath("../HealthComponent")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
-shape = SubResource("CircleShape2D_62e5d")
+script = ExtResource("1_7ipoo")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 material = SubResource("CanvasItemMaterial_vpaq3")
@@ -57,8 +50,6 @@ thisRealm = "Alt1"
 [node name="RayCast2D" type="RayCast2D" parent="."]
 target_position = Vector2(0, 3000)
 collision_mask = 3
-
-[node name="HealthComponent" parent="." instance=ExtResource("6_xwxrc")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_62e5d")
