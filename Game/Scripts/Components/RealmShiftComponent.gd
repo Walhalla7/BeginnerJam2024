@@ -13,7 +13,7 @@ class_name RealmComponent
 @export var AltSprite: Node2D
 
 @export_category("Realm")
-@export_enum("Default", "Alt1", "Alt2") var thisRealm:String = "Default"
+@export_enum("Default", "Alt1") var thisRealm:String = "Default"
 
 #support variables
 var hidden = false

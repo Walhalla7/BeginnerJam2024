@@ -9,26 +9,22 @@ func _input(event):
 	if event.is_action_released("ChangeWorld"):
 		currRealm -= 1
 		if currRealm < 1:
-			currRealm = 3
+			currRealm = 2
 		match currRealm:
 			1: 
 				SignalBus.emit_signal("changeWorld", "Alt1")
 			2:
 				SignalBus.emit_signal("changeWorld", "Default")
-			3:
-				SignalBus.emit_signal("changeWorld", "Alt2")
 		
 	if event.is_action_released("ChangeWorld1"):
 		currRealm += 1
-		if currRealm > 3:
+		if currRealm > 2:
 			currRealm = 1
 		match currRealm:
 			1: 
 				SignalBus.emit_signal("changeWorld", "Alt1")
 			2:
 				SignalBus.emit_signal("changeWorld", "Default")
-			3:
-				SignalBus.emit_signal("changeWorld", "Alt2")
 
 func _ready():
 	#we add all the posible states to the list 

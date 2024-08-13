@@ -18,9 +18,11 @@ var projectile = preload("res://Scenes/Enemies/Projectile.tscn")
 
 func _on_health_component_death():
 	print("Player has died")
+	SignalBus.emit_signal("DamageTaken")
 	SignalBus.emit_signal("game_over")
 
 func _on_health_component_hurt():
+	SignalBus.emit_signal("DamageTaken")
 	print("Player has been hurt")
 
 
