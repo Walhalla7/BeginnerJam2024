@@ -1,6 +1,6 @@
 extends Control
 
-var main# = preload("res://world.tscn")
+var main = preload("res://Scenes/World/CombinedRealms.tscn")
 
 #Hide and only show up when signal is received 
 func _ready():
@@ -11,7 +11,7 @@ func _ready():
 func GameEnd():
 	show()
 	for child in get_parent().get_children():
-		if child.name == "World":
+		if child.name == "CombinedRealms":
 			child.queue_free()
 			break
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE

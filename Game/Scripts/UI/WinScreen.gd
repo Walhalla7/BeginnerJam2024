@@ -1,7 +1,7 @@
 extends Control
 
 #Preloading Scene
-var main# = preload("res://world.tscn")
+var main# = preload("res://Scenes/World/CombinedRealms.tscn")
 
 #Hide and only show up when signal is received 
 func _ready():
