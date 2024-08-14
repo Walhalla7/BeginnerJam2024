@@ -9,6 +9,8 @@ const SPEED = 75.0
 @onready var enemy_vision := $EnemyVision as Node2D
 @onready var damage_component = $DamageComponent
 
+@onready var path_2d = $Path2D/PathFollow2D
+
 var charging_time=0
 var charging_bool=false
 var charging_duration=3
@@ -65,6 +67,10 @@ func _physics_process(delta):
 	
 	#if ray_cast.is_colliding():
 	if enemy_vision.enemy_state>2:
+		if path_2d:
+			var direction = 1
+			path_2d.progress= 40*delta * direction
+			global_position = path_2d.global_position
 		return
 	else:
 		if prev_ennemy_state!=enemy_vision.enemy_state:

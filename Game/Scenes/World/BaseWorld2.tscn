@@ -8041,4 +8041,3 @@ layer_1/tile_data = PackedInt32Array(0, 131074, 13, 65536, 131074, 11, 131072, 1
 
 [node name="RealmShiftComponent" parent="." node_paths=PackedStringArray("sprite") instance=ExtResource("4_2rmr6")]
 sprite = NodePath("..")
-thisRealm = "Alt1"

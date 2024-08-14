@@ -8041,3 +8041,4 @@ layer_1/tile_data = PackedInt32Array(0, 2, 14, 65536, 2, 15, 131072, 2, 16, 1966
 
 [node name="RealmShiftComponent" parent="." node_paths=PackedStringArray("sprite") instance=ExtResource("3_r3m13")]
 sprite = NodePath("..")
+thisRealm = "Alt1"

@@ -51,7 +51,6 @@ autostart = true
 [node name="RealmShiftComponent" parent="." node_paths=PackedStringArray("sprite", "AltSprite") instance=ExtResource("2_0nadn")]
 sprite = NodePath("../AnimatedSprite2D")
 AltSprite = NodePath("../Sprite2D")
-thisRealm = "Alt1"
 
 [node name="DamageComponent" parent="." instance=ExtResource("3_mdqnw")]
 
