@@ -55,11 +55,17 @@ func _getCollisions():
 func disableCollisions():
 	for collision in collisions:
 		collision.disabled = true
+		
+	if (parent is TileMap) and (parent.is_in_group("RealmObstacle")):
+		parent.set_layer_enabled(0, true)
 
 func enableCollisions():
 	for collision in collisions:
 		collision.disabled = false
 
+	if (parent is TileMap) and (parent.is_in_group("RealmObstacle")):
+		parent.set_layer_enabled(0, false)
+		
 #----------------------------------- REALMS ---------------------------------
 func hideAll():
 	if !hidden:
