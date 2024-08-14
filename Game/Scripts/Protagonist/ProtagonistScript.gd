@@ -8,7 +8,7 @@ extends CharacterBody2D
 @export var lerp_speed = 0.2
 
 
-var projectile = preload("res://Scenes/Enemies/Projectile.tscn")
+#var projectile = preload("res://Scenes/Enemies/Projectile.tscn")
 
 #@export var JUMP_VELOCITY = 7
 #var sprint_modifier = 1
@@ -59,12 +59,12 @@ func _physics_process(delta):
 	# shooting
 	var mouse_pos = get_global_mouse_position()
 	$Marker2D.look_at(mouse_pos)
-	if Input.is_action_just_pressed("L_Click"):
-		var projectile_instance = projectile.instantiate()
-		projectile_instance.player_velocity = velocity
-		projectile_instance.rotation = $Marker2D.rotation
-		projectile_instance.position = position	
-		projectile_instance.collision_layer = 1
-		projectile_instance.collision_mask = 2|3
-		projectile_instance.group_name = "enemy"	
-		add_sibling(projectile_instance)
+	#if Input.is_action_just_pressed("L_Click"):
+		#var projectile_instance = projectile.instantiate()
+		#projectile_instance.player_velocity = velocity
+		#projectile_instance.rotation = $Marker2D.rotation
+		#projectile_instance.position = position	
+		#projectile_instance.collision_layer = 1
+		#projectile_instance.collision_mask = 2|3
+		#projectile_instance.group_name = "enemy"	
+		#add_sibling(projectile_instance)
