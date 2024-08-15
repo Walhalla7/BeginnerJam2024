@@ -122,4 +122,4 @@ rotation = 2.13753
 [node name="HealthBar" parent="." instance=ExtResource("9_x81s0")]
 
 [node name="WinCondition" parent="." instance=ExtResource("10_6om6c")]
-position = Vector2(159, 126)
+position = Vector2(951, 838)

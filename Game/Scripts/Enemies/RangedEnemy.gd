@@ -15,6 +15,7 @@ var projectile = preload("res://Scenes/Enemies/Projectile.tscn")
 var shoot_timer=0
 
 func _ready():
+	$AnimatedSprite2D.play("Idle")
 	call_deferred("seeker_setup")
 
 func seeker_setup():
@@ -53,6 +54,15 @@ func _physics_process(delta):
 				projectile_instance.position = position		
 				add_sibling(projectile_instance)
 				shoot_timer=1
+		if velocity.x < 0:
+			$AnimatedSprite2D.flip_h = true
+		elif velocity.x > 0:
+			$AnimatedSprite2D.flip_h = false
+		
+		if velocity.x > 0 || velocity.y > 0: 
+			$AnimatedSprite2D.play("default")
+		else:
+			$AnimatedSprite2D.play("Idle")
 		move_and_slide()
 	shoot_timer-=delta
 	

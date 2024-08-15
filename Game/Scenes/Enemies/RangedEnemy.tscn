@@ -1,7 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://bylfpkbqkg2sn"]
+[gd_scene load_steps=16 format=3 uid="uid://bylfpkbqkg2sn"]
 
 [ext_resource type="Script" path="res://Scripts/Enemies/RangedEnemy.gd" id="1_w1h8l"]
-[ext_resource type="Texture2D" uid="uid://bv5fn7nb50mwj" path="res://icon.svg" id="2_v40sm"]
+[ext_resource type="Texture2D" uid="uid://dd3px0hnhh6do" path="res://Assets/SpriteSheets/spirit_enemy2-Sheet.png" id="2_dn2qi"]
 [ext_resource type="PackedScene" uid="uid://6wa87p4g41rc" path="res://Scenes/Components/RealmShiftComponent.tscn" id="3_t4r6d"]
 [ext_resource type="PackedScene" uid="uid://b7t81nu7dhqu8" path="res://Scenes/Components/DamageComponent.tscn" id="4_dk2lx"]
 [ext_resource type="Texture2D" uid="uid://caydt7dnhise2" path="res://Assets/Temporary/pumpkin1-1.png" id="5_4e4wa"]
@@ -12,11 +12,55 @@ radius = 11.0
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_gr3ws"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_nxwbn"]
+atlas = ExtResource("2_dn2qi")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_new31"]
+atlas = ExtResource("2_dn2qi")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jl7wb"]
+atlas = ExtResource("2_dn2qi")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d0nn1"]
+atlas = ExtResource("2_dn2qi")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5sg42"]
+atlas = ExtResource("2_dn2qi")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lgmla"]
+atlas = ExtResource("2_dn2qi")
+region = Rect2(384, 0, 128, 128)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_hig8p"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_v40sm")
+"texture": SubResource("AtlasTexture_nxwbn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_new31")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jl7wb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d0nn1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5sg42")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lgmla")
 }],
 "loop": true,
 "name": &"default",
@@ -38,8 +82,9 @@ shape = SubResource("CircleShape2D_fs2bh")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 material = SubResource("CanvasItemMaterial_gr3ws")
 position = Vector2(1.90735e-06, 2.38419e-07)
-scale = Vector2(0.15625, 0.15625)
+scale = Vector2(0.3, 0.3)
 sprite_frames = SubResource("SpriteFrames_hig8p")
+animation = &"Idle"
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 
@@ -62,6 +107,7 @@ collide_with_areas = true
 [node name="Marker2D" type="Marker2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 scale = Vector2(0.01, 0.01)
 texture = ExtResource("5_4e4wa")
 
