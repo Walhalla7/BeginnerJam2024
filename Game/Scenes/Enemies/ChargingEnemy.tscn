@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dupxqfrbh63a8"]
+[gd_scene load_steps=10 format=3 uid="uid://dupxqfrbh63a8"]
 
 [ext_resource type="Script" path="res://Scripts/Enemies/ChargingEnemy.gd" id="1_7ipoo"]
 [ext_resource type="Texture2D" uid="uid://bv5fn7nb50mwj" path="res://icon.svg" id="1_uhcq8"]
