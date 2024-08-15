@@ -1,8 +1,8 @@
 extends Control
 
 #Preloading Scene
-var main# = preload("res://world.tscn")
-var intro #= preload("res://intro.tscn")
+var main = preload("res://Scenes/World/CombinedRealms.tscn")
+var intro = preload("res://Scenes/UI/Intro.tscn")
 
 #Show at the beginning
 func _ready():

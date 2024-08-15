@@ -18,9 +18,11 @@ extends CharacterBody2D
 
 func _on_health_component_death():
 	print("Player has died")
+	SignalBus.emit_signal("DamageTaken")
 	SignalBus.emit_signal("game_over")
 
 func _on_health_component_hurt():
+	SignalBus.emit_signal("DamageTaken")
 	print("Player has been hurt")
 
 
@@ -41,12 +43,22 @@ func _handle_move_input():
 	var move_direction_x = int(Input.is_action_pressed("Right")) - int(Input.is_action_pressed("Left"))
 	var move_direction_y = -int(Input.is_action_pressed("Up")) + int(Input.is_action_pressed("Down"))
 
-	# Sprint Input / calculations
-	#sprint_modifier = max_sprint_modifier if Input.is_action_pressed("sprint") else 1
-	
-	#we apply the direction to velocity 
-	velocity.x = lerp(velocity.x, move_direction_x * move_speed, lerp_speed)
-	velocity.y = lerp(velocity.y, move_direction_y * move_speed, lerp_speed)
+	 # Compute the direction vector
+	var move_direction = Vector2(move_direction_x, move_direction_y)
+
+	if move_direction.length() > 0:
+		move_direction = move_direction.normalized()
+		
+		
+	#print("Move Direction: ", move_direction)
+	#print("Velocity: ", velocity)
+		
+	# Apply sprint modifier
+	#var speed = move_speed * (sprint_modifier if Input.is_action_pressed("sprint") else 1)
+		
+	# Update velocity with smoothing (lerp)
+	velocity.x = lerp(velocity.x, move_direction.x * move_speed, lerp_speed)
+	velocity.y = lerp(velocity.y, move_direction.y * move_speed, lerp_speed)
 
 #======================================== 	Initialize 	==================================
 func _ready():

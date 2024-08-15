@@ -1,7 +1,7 @@
 extends Control
 
 #Preloading Scene
-var main# = preload("res://world.tscn")
+var main = preload("res://Scenes/World/CombinedRealms.tscn")
 
 #Hide and only show up when signal is received 
 func _ready():
@@ -12,7 +12,7 @@ func _ready():
 func Victory():
 	show()
 	for child in get_parent().get_children():
-		if child.name == "World":
+		if child.name == "CombinedRealms":
 			child.queue_free()
 			break
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
@@ -23,7 +23,6 @@ func _on_reset_button_pressed():
 	hide()
 	var newLevel_instance = main.instantiate()
 	get_parent().add_child(newLevel_instance)
-	
 
 #quit game
 func _on_quit_button_pressed():

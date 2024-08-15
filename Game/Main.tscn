@@ -10,6 +10,7 @@
 visible = false
 
 [node name="StartScreen" parent="." instance=ExtResource("2_500vx")]
+visible = false
 
 [node name="VictoryScreen" parent="." instance=ExtResource("3_3nbp5")]
 visible = false

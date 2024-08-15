@@ -15,6 +15,7 @@ var projectile = preload("res://Scenes/Enemies/Projectile.tscn")
 var shoot_timer=0
 
 func _ready():
+	$AnimatedSprite2D.play("Idle")
 	call_deferred("seeker_setup")
 
 func seeker_setup():
@@ -38,7 +39,8 @@ func _physics_process(delta):
 			SPEED = MAX_SPEED
 			
 		if ((current_agent_position-player.global_position).length()>100) or (ray_cast.get_collider() is TileMap):
-			velocity = current_agent_position.direction_to(next_path_position)*SPEED
+			var direction = (next_path_position - current_agent_position).normalized()
+			velocity = direction * SPEED
 		else:
 			velocity=Vector2.ZERO
 			
@@ -52,6 +54,15 @@ func _physics_process(delta):
 				projectile_instance.position = position		
 				add_sibling(projectile_instance)
 				shoot_timer=1
+		if velocity.x < 0:
+			$AnimatedSprite2D.flip_h = true
+		elif velocity.x > 0:
+			$AnimatedSprite2D.flip_h = false
+		
+		if velocity.x > 0 || velocity.y > 0: 
+			$AnimatedSprite2D.play("default")
+		else:
+			$AnimatedSprite2D.play("Idle")
 		move_and_slide()
 	shoot_timer-=delta
 	

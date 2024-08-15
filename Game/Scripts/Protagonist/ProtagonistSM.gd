@@ -41,8 +41,6 @@ func _input(event):
 				SignalBus.emit_signal("changeWorld", "Alt1")
 			2:
 				SignalBus.emit_signal("changeWorld", "Default")
-			3:
-				SignalBus.emit_signal("changeWorld", "Alt2")
 		
 	if event.is_action_released("ChangeWorld1"):
 		currRealm += 1
