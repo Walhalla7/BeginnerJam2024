@@ -1,9 +1,9 @@
-[gd_scene load_steps=18 format=3 uid="uid://cskiumpvyp11y"]
+[gd_scene load_steps=24 format=3 uid="uid://cskiumpvyp11y"]
 
 [ext_resource type="Script" path="res://Scripts/Enemies/TrackingEnemy.gd" id="1_4v7vk"]
 [ext_resource type="Texture2D" uid="uid://cykl0ah4ykhup" path="res://Assets/SpriteSheets/slime1-Sheet.png" id="2_bs8mo"]
 [ext_resource type="PackedScene" uid="uid://6wa87p4g41rc" path="res://Scenes/Components/RealmShiftComponent.tscn" id="3_ne7e2"]
-[ext_resource type="Texture2D" uid="uid://caydt7dnhise2" path="res://Assets/Temporary/pumpkin1-1.png" id="5_1sio4"]
+[ext_resource type="Texture2D" uid="uid://cm54gd5oywhcv" path="res://Assets/SpriteSheets/wisp1-Sheet.png" id="4_6h43v"]
 [ext_resource type="PackedScene" uid="uid://cdxhjc8giat21" path="res://Scenes/Components/AttackComponent.tscn" id="5_vydrl"]
 [ext_resource type="PackedScene" uid="uid://dxumvqij2a3n3" path="res://Scenes/Components/enemy_vision.tscn" id="6_v2vym"]
 
@@ -74,6 +74,49 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_fs2bh"]
 radius = 11.0
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_gtm5l"]
+atlas = ExtResource("4_6h43v")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p3ke1"]
+atlas = ExtResource("4_6h43v")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_83iki"]
+atlas = ExtResource("4_6h43v")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bigg7"]
+atlas = ExtResource("4_6h43v")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_anpmh"]
+atlas = ExtResource("4_6h43v")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cdc2o"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gtm5l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p3ke1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_83iki")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bigg7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_anpmh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d07wa"]
 size = Vector2(25, 25)
 
@@ -102,10 +145,12 @@ sprite = NodePath("../AnimatedSprite2D")
 AltSprite = NodePath("../Sprite2D")
 thisRealm = "Alt1"
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+process_mode = 3
 visible = false
-scale = Vector2(0.01, 0.01)
-texture = ExtResource("5_1sio4")
+scale = Vector2(0.4, 0.4)
+sprite_frames = SubResource("SpriteFrames_cdc2o")
+autoplay = "default"
 
 [node name="AttackComponent" parent="." instance=ExtResource("5_vydrl")]
 

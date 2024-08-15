@@ -17,6 +17,9 @@ var shoot_timer=0
 func _ready():
 	$AnimatedSprite2D.play("Idle")
 	call_deferred("seeker_setup")
+	$Sprite2D.global_rotation = 0
+	$Sprite2D.play("default")
+
 
 func seeker_setup():
 	await get_tree().physics_frame

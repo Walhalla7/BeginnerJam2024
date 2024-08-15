@@ -1,10 +1,10 @@
-[gd_scene load_steps=16 format=3 uid="uid://bylfpkbqkg2sn"]
+[gd_scene load_steps=22 format=3 uid="uid://bylfpkbqkg2sn"]
 
 [ext_resource type="Script" path="res://Scripts/Enemies/RangedEnemy.gd" id="1_w1h8l"]
 [ext_resource type="Texture2D" uid="uid://dd3px0hnhh6do" path="res://Assets/SpriteSheets/spirit_enemy2-Sheet.png" id="2_dn2qi"]
 [ext_resource type="PackedScene" uid="uid://6wa87p4g41rc" path="res://Scenes/Components/RealmShiftComponent.tscn" id="3_t4r6d"]
 [ext_resource type="PackedScene" uid="uid://b7t81nu7dhqu8" path="res://Scenes/Components/DamageComponent.tscn" id="4_dk2lx"]
-[ext_resource type="Texture2D" uid="uid://caydt7dnhise2" path="res://Assets/Temporary/pumpkin1-1.png" id="5_4e4wa"]
+[ext_resource type="Texture2D" uid="uid://cm54gd5oywhcv" path="res://Assets/SpriteSheets/wisp1-Sheet.png" id="5_6ohbt"]
 [ext_resource type="PackedScene" uid="uid://dxumvqij2a3n3" path="res://Scenes/Components/enemy_vision.tscn" id="6_8oitl"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fs2bh"]
@@ -67,6 +67,49 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_25488"]
+atlas = ExtResource("5_6ohbt")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qqx3i"]
+atlas = ExtResource("5_6ohbt")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hp2e5"]
+atlas = ExtResource("5_6ohbt")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4f3bx"]
+atlas = ExtResource("5_6ohbt")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_031ky"]
+atlas = ExtResource("5_6ohbt")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8sv8t"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_25488")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qqx3i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hp2e5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4f3bx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_031ky")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="RangedEnemy" type="CharacterBody2D" groups=["Enemy"]]
 process_mode = 1
 modulate = Color(0.552118, 0.562134, 0, 1)
@@ -106,9 +149,11 @@ collide_with_areas = true
 
 [node name="Marker2D" type="Marker2D" parent="."]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+process_mode = 3
 visible = false
-scale = Vector2(0.01, 0.01)
-texture = ExtResource("5_4e4wa")
+scale = Vector2(0.4, 0.4)
+sprite_frames = SubResource("SpriteFrames_8sv8t")
+autoplay = "default"
 
 [node name="EnemyVision" parent="." instance=ExtResource("6_8oitl")]

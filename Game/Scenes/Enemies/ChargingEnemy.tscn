@@ -1,10 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://dupxqfrbh63a8"]
+[gd_scene load_steps=16 format=3 uid="uid://dupxqfrbh63a8"]
 
 [ext_resource type="Script" path="res://Scripts/Enemies/ChargingEnemy.gd" id="1_7ipoo"]
 [ext_resource type="Texture2D" uid="uid://bv5fn7nb50mwj" path="res://icon.svg" id="1_uhcq8"]
 [ext_resource type="PackedScene" uid="uid://6wa87p4g41rc" path="res://Scenes/Components/RealmShiftComponent.tscn" id="2_0nadn"]
 [ext_resource type="PackedScene" uid="uid://b7t81nu7dhqu8" path="res://Scenes/Components/DamageComponent.tscn" id="3_mdqnw"]
-[ext_resource type="Texture2D" uid="uid://caydt7dnhise2" path="res://Assets/Temporary/pumpkin1-1.png" id="7_8x0bb"]
+[ext_resource type="Texture2D" uid="uid://cm54gd5oywhcv" path="res://Assets/SpriteSheets/wisp1-Sheet.png" id="5_f3sx3"]
 [ext_resource type="PackedScene" uid="uid://dxumvqij2a3n3" path="res://Scenes/Components/enemy_vision.tscn" id="8_5l66l"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_vpaq3"]
@@ -22,6 +22,49 @@ animations = [{
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_62e5d"]
 radius = 11.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x0kex"]
+atlas = ExtResource("5_f3sx3")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wpk5k"]
+atlas = ExtResource("5_f3sx3")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tchpx"]
+atlas = ExtResource("5_f3sx3")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_at6fx"]
+atlas = ExtResource("5_f3sx3")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0xi7a"]
+atlas = ExtResource("5_f3sx3")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g5mi0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x0kex")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wpk5k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tchpx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_at6fx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0xi7a")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="ChargingEnemy" type="CharacterBody2D" groups=["Enemy"]]
 modulate = Color(0.00999999, 1, 0.175, 1)
@@ -54,8 +97,10 @@ collision_mask = 3
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_62e5d")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.02, 0.02)
-texture = ExtResource("7_8x0bb")
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+process_mode = 3
+scale = Vector2(0.4, 0.4)
+sprite_frames = SubResource("SpriteFrames_g5mi0")
+autoplay = "default"
 
 [node name="EnemyVision" parent="." instance=ExtResource("8_5l66l")]
