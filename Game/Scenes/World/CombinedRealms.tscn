@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://bl8s5lkgtmlji"]
+[gd_scene load_steps=10 format=3 uid="uid://bl8s5lkgtmlji"]
 
 [ext_resource type="PackedScene" uid="uid://kars26pa8oho" path="res://Scenes/Protagonist/Protagonist.tscn" id="1_658ld"]
 [ext_resource type="PackedScene" uid="uid://dgl2m1ldrfgwm" path="res://Scenes/World/PhysicsMap.tscn" id="1_pqf45"]
 [ext_resource type="PackedScene" uid="uid://cskiumpvyp11y" path="res://Scenes/Enemies/TrackingEnemy.tscn" id="5_rdsfo"]
 [ext_resource type="PackedScene" uid="uid://dupxqfrbh63a8" path="res://Scenes/Enemies/ChargingEnemy.tscn" id="6_1s2y1"]
+[ext_resource type="PackedScene" uid="uid://bqfi372fclnfo" path="res://Scenes/World/Torch.tscn" id="8_7shvu"]
 [ext_resource type="PackedScene" uid="uid://nba5fck4q5dg" path="res://Scenes/Protagonist/HealthBar.tscn" id="9_x81s0"]
 [ext_resource type="PackedScene" uid="uid://bylfpkbqkg2sn" path="res://Scenes/Enemies/RangedEnemy.tscn" id="9_ywtop"]
 [ext_resource type="PackedScene" uid="uid://euptijtjodqj" path="res://Scenes/WinCondition.tscn" id="10_6om6c"]
@@ -637,3 +638,12 @@ z_index = 5
 position = Vector2(3089, -335)
 rotation = 1.5708
 scale = Vector2(1.055, 1.055)
+
+[node name="Torch" parent="." instance=ExtResource("8_7shvu")]
+position = Vector2(2873, -409)
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.141336, 0.276004, 0.331879, 1)
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+color = Color(0.0373437, 0.0991529, 0.114994, 1)

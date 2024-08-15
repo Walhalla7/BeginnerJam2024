@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://2wjrkrig3riy" path="res://Assets/Sprites/ghost_icon1-1.png" id="4_0it6f"]
 
 [sub_resource type="Theme" id="Theme_tx1dm"]
+Label/fonts/font = null
 VBoxContainer/constants/separation = -3
 
 [node name="HealthBar" type="CanvasLayer"]
