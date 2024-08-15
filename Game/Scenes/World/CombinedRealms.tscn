@@ -34,7 +34,7 @@ visible = false
 [node name="BaseWorld" parent="Map/Visuals" instance=ExtResource("4_yuf6r")]
 
 [node name="Protagonist" parent="." instance=ExtResource("1_658ld")]
-position = Vector2(1395, 433)
+position = Vector2(52, 125)
 scale = Vector2(0.2, 0.2)
 collision_mask = 5
 move_speed = 140.0

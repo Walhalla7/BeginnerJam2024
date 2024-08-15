@@ -2,7 +2,12 @@ extends StateMachine
 
 #------------------------------- REALM MANAGMENT -------------------------------
 var currRealm = 2
+var warpReady = true
 
+@onready var RealmTimer = $"../RealmCooldown"
+
+func _on_realm_cooldown_timeout():
+	warpReady = true
 
 #function to handle jump input
 #func _input(event):
@@ -32,7 +37,9 @@ var currRealm = 2
 				
 				
 func _input(event):
-	if event.is_action_released("ChangeWorld"):
+	if event.is_action_released("ChangeWorld") and warpReady:
+		warpReady = false
+		RealmTimer.start()
 		currRealm -= 1
 		if currRealm < 1:
 			currRealm = 2
@@ -42,17 +49,17 @@ func _input(event):
 			2:
 				SignalBus.emit_signal("changeWorld", "Default")
 		
-	if event.is_action_released("ChangeWorld1"):
-		currRealm += 1
-		if currRealm > 2:
-			currRealm = 1
-		match currRealm:
-			1: 
-				SignalBus.emit_signal("changeWorld", "Alt1")
-			2:
-				SignalBus.emit_signal("changeWorld", "Default")
-			3:
-				SignalBus.emit_signal("changeWorld", "Alt2")
+	#if event.is_action_released("ChangeWorld1"):
+		#currRealm += 1
+		#if currRealm > 2:
+			#currRealm = 1
+		#match currRealm:
+			#1: 
+				#SignalBus.emit_signal("changeWorld", "Alt1")
+			#2:
+				#SignalBus.emit_signal("changeWorld", "Default")
+			#3:
+				#SignalBus.emit_signal("changeWorld", "Alt2")
 				
 
 func _ready():
@@ -96,3 +103,6 @@ func _enter_state(new_state, old_state):
 #define behaviors while exiting out of specific state
 func _exit_state(old_state, new_state):
 	pass
+
+
+
