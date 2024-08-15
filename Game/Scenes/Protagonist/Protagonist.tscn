@@ -15,7 +15,7 @@ size = Vector2(150, 150)
 [node name="Protagonist" type="CharacterBody2D" groups=["player"]]
 process_mode = 3
 collision_layer = 2
-collision_mask = 3
+collision_mask = 19
 script = ExtResource("1_wjbix")
 
 [node name="Marker2D" type="Marker2D" parent="."]
@@ -29,7 +29,7 @@ shape = SubResource("RectangleShape2D_qioug")
 [node name="HealthComponent" parent="." instance=ExtResource("2_8fy8c")]
 
 [node name="HitboxComponent" parent="." node_paths=PackedStringArray("health_component") groups=["player"] instance=ExtResource("3_aovje")]
-collision_mask = 4
+collision_mask = 12
 health_component = NodePath("../HealthComponent")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]

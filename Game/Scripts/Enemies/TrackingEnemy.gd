@@ -4,6 +4,7 @@ extends CharacterBody2D
 const SPEED = 90.0
 
 @export var player: Node2D
+@export var damageDealt = 1
 
 @onready var nav_agent := $NavigationAgent2D as NavigationAgent2D
 
@@ -23,7 +24,8 @@ func seeker_setup():
 func _physics_process(delta):
 	var current_agent_position =  global_position
 	var next_path_position = nav_agent.get_next_path_position()
-	velocity = current_agent_position.direction_to(next_path_position)*SPEED
+	var direction = (next_path_position - current_agent_position).normalized()
+	velocity = direction * SPEED
 	move_and_slide()
 	
 	# Update the target

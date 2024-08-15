@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://cdxhjc8giat21"]
+
+[ext_resource type="Script" path="res://Scripts/Components/AttackComponent.gd" id="1_ben2h"]
+
+[node name="AttackComponent" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_ben2h")
+
+[node name="attackTime" type="Timer" parent="."]
+one_shot = true
+
+[node name="Cooldown" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="timeout" from="attackTime" to="." method="_on_attack_time_timeout"]
+[connection signal="timeout" from="Cooldown" to="." method="_on_cooldown_timeout"]

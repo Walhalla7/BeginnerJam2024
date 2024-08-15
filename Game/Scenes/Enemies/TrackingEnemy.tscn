@@ -1,10 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://cskiumpvyp11y"]
+[gd_scene load_steps=10 format=3 uid="uid://cskiumpvyp11y"]
 
 [ext_resource type="Script" path="res://Scripts/Enemies/TrackingEnemy.gd" id="1_4v7vk"]
 [ext_resource type="Texture2D" uid="uid://bv5fn7nb50mwj" path="res://icon.svg" id="2_tjfml"]
 [ext_resource type="PackedScene" uid="uid://6wa87p4g41rc" path="res://Scenes/Components/RealmShiftComponent.tscn" id="3_ne7e2"]
 [ext_resource type="Texture2D" uid="uid://caydt7dnhise2" path="res://Assets/Temporary/pumpkin1-1.png" id="5_1sio4"]
-[ext_resource type="PackedScene" uid="uid://b7t81nu7dhqu8" path="res://Scenes/Components/DamageComponent.tscn" id="5_y7m6l"]
+[ext_resource type="PackedScene" uid="uid://cdxhjc8giat21" path="res://Scenes/Components/AttackComponent.tscn" id="5_vydrl"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fs2bh"]
 radius = 11.0
@@ -21,6 +21,9 @@ animations = [{
 "name": &"default",
 "speed": 5.0
 }]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d07wa"]
+size = Vector2(25, 25)
 
 [node name="TrackingEnemy" type="CharacterBody2D" groups=["Enemy"]]
 modulate = Color(1, 0, 0.0166664, 1)
@@ -47,8 +50,11 @@ sprite = NodePath("../AnimatedSprite2D")
 AltSprite = NodePath("../Sprite2D")
 thisRealm = "Alt2"
 
-[node name="DamageComponent" parent="." instance=ExtResource("5_y7m6l")]
-
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.01, 0.01)
 texture = ExtResource("5_1sio4")
+
+[node name="AttackComponent" parent="." instance=ExtResource("5_vydrl")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackComponent"]
+shape = SubResource("RectangleShape2D_d07wa")

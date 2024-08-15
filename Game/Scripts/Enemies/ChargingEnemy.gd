@@ -7,8 +7,6 @@ const SPEED = 75.0
 @onready var nav_agent := $NavigationAgent2D as NavigationAgent2D
 @onready var ray_cast := $RayCast2D as RayCast2D
 
-@onready var damage_component = $DamageComponent
-
 var charging_time=0
 var charging_bool=false
 var charging_duration=3
@@ -108,7 +106,8 @@ func _physics_process(delta):
 	if not charging_bool:
 		var current_agent_position =  global_position
 		var next_path_position = nav_agent.get_next_path_position()
-		velocity = current_agent_position.direction_to(next_path_position)*SPEED
+		var direction = (next_path_position - current_agent_position).normalized()
+		velocity = direction * SPEED
 		var current_angle_vector=Vector2(sin(rotation), cos(rotation))
 		var target_angle=current_angle_vector.angle_to(to_local(player.global_position).normalized())
 		rotation=target_angle

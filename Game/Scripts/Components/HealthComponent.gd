@@ -14,13 +14,21 @@ signal death
 #======================================== 	Initialize 	==================================
 func _ready():
 	health = MAX_HEALTH
-	
+	SignalBus.damage_dealt.connect(receiveDamage)
+
 #======================================== 	Functions for Health 	==================================	
-func decrement_health(damage: DamageComponent):
-	health -= damage.damage_value
-	
+func checkHealth():
 	if health <= 0:
 		death.emit()
 	else:
 		print(str(get_parent().name) + "'s health is " + str(health))
 		hurt.emit()
+		
+func receiveDamage(dmg):
+	health -= dmg
+	checkHealth()
+	
+
+func decrement_health(damage: DamageComponent):
+	health -= damage.damage_value
+	checkHealth()

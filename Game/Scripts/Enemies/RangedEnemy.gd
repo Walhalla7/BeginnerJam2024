@@ -31,7 +31,8 @@ func _physics_process(delta):
 	ray_cast.look_at(player.global_position)
 	ray_cast.rotate(-PI/2)
 	if ((current_agent_position-player.global_position).length()>100) or (ray_cast.get_collider() is TileMap):
-		velocity = current_agent_position.direction_to(next_path_position)*SPEED
+		var direction = (next_path_position - current_agent_position).normalized()
+		velocity = direction * SPEED
 	else:
 		velocity=Vector2.ZERO
 		
@@ -42,6 +43,7 @@ func _physics_process(delta):
 			#projectile_instance.player_velocity = Vecto2.
 			projectile_instance.rotation = $Marker2D.rotation
 			projectile_instance.position = position		
+			projectile_instance.collision_mask = 2 && 5
 			add_sibling(projectile_instance)
 			shoot_timer=1
 			
