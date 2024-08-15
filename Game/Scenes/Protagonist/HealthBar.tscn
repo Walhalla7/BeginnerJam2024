@@ -1,12 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://nba5fck4q5dg"]
+[gd_scene load_steps=7 format=3 uid="uid://nba5fck4q5dg"]
 
 [ext_resource type="Script" path="res://Scripts/Protagonist/HealthBar.gd" id="1_0fokc"]
 [ext_resource type="Texture2D" uid="uid://dahsbnihww7iw" path="res://Assets/Sprites/generic_heart1-1.png" id="2_18ofb"]
 [ext_resource type="Texture2D" uid="uid://bhdbyfj2em4ex" path="res://Assets/Sprites/jail_bars1-1.png" id="3_roeyp"]
+[ext_resource type="FontFile" uid="uid://bssqip8v73mx3" path="res://Assets/Pixellettersfull-BnJ5.ttf" id="3_u8kk3"]
 [ext_resource type="Texture2D" uid="uid://2wjrkrig3riy" path="res://Assets/Sprites/ghost_icon1-1.png" id="4_0it6f"]
 
 [sub_resource type="Theme" id="Theme_tx1dm"]
-Label/fonts/font = null
+Label/fonts/font = ExtResource("3_u8kk3")
 VBoxContainer/constants/separation = -3
 
 [node name="HealthBar" type="CanvasLayer"]

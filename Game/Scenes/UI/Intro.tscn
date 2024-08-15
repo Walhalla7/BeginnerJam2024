@@ -1,13 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://bs53xg0knvisa"]
+[gd_scene load_steps=5 format=3 uid="uid://bs53xg0knvisa"]
 
 [ext_resource type="Script" path="res://Scripts/UI/Intro.gd" id="1_2kvs0"]
+[ext_resource type="FontFile" uid="uid://bssqip8v73mx3" path="res://Assets/Pixellettersfull-BnJ5.ttf" id="1_86rpk"]
+
+[sub_resource type="Theme" id="Theme_5yxq1"]
+Label/font_sizes/font_size = 50
+Label/fonts/font = ExtResource("1_86rpk")
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_nbkdm"]
 blend_mode = 4
-
-[sub_resource type="LabelSettings" id="LabelSettings_m1rhc"]
-font_size = 20
-font_color = Color(0.907942, 0.907942, 0.907942, 1)
 
 [node name="Intro" type="Control"]
 layout_mode = 3
@@ -16,6 +17,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = SubResource("Theme_5yxq1")
 script = ExtResource("1_2kvs0")
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -46,7 +48,6 @@ text = "Have you ever Lost somebody?
 Did you wish that you could talk to them?
 
 just one.... more.... time?"
-label_settings = SubResource("LabelSettings_m1rhc")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -69,7 +70,6 @@ text = "The hero of this story wished for exactly that.
 And he made that dream a reality.
 
 But times weren't so fond of his \"witchcraft\""
-label_settings = SubResource("LabelSettings_m1rhc")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -94,7 +94,6 @@ In the \"box\" from which he were never to escape.
 ...
 
 Help him escape through the use of his powers!"
-label_settings = SubResource("LabelSettings_m1rhc")
 horizontal_alignment = 1
 vertical_alignment = 1
 
