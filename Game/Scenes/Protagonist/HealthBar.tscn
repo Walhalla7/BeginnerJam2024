@@ -56,3 +56,9 @@ expand_mode = 4
 layout_mode = 2
 text = "Q"
 horizontal_alignment = 1
+
+[node name="RealmTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[connection signal="timeout" from="RealmTimer" to="." method="_on_realm_timer_timeout"]

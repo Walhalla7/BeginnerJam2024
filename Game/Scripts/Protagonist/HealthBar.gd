@@ -22,6 +22,8 @@ func _ready():
 	sideWorld.hide()
 
 func changeRealm(newRealm):
+	$RealmTimer.start()
+	$VBoxContainer.modulate = Color("#6d6d6d")
 	match  newRealm:
 		"Default":
 			sideWorld.hide()
@@ -39,3 +41,7 @@ func loseHealth():
 			health2.hide()
 		0:
 			health1.hide()
+
+
+func _on_realm_timer_timeout():
+	$VBoxContainer.modulate = Color("#ffffff")
