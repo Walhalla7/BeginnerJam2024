@@ -105,6 +105,3 @@ func _enter_state(new_state, old_state):
 #define behaviors while exiting out of specific state
 func _exit_state(old_state, new_state):
 	pass
-
-
-

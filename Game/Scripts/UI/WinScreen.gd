@@ -27,4 +27,3 @@ func _on_reset_button_pressed():
 #quit game
 func _on_quit_button_pressed():
 	get_tree().quit()
-

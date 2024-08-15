@@ -1,10 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://bl8s5lkgtmlji"]
+[gd_scene load_steps=9 format=3 uid="uid://bl8s5lkgtmlji"]
 
 [ext_resource type="PackedScene" uid="uid://kars26pa8oho" path="res://Scenes/Protagonist/Protagonist.tscn" id="1_658ld"]
-[ext_resource type="PackedScene" uid="uid://leme7iedb3re" path="res://Scenes/World/AlternativeWorld.tscn" id="1_liyoy"]
 [ext_resource type="PackedScene" uid="uid://dgl2m1ldrfgwm" path="res://Scenes/World/PhysicsMap.tscn" id="1_pqf45"]
-[ext_resource type="PackedScene" uid="uid://by8i0ouow1g3i" path="res://Scenes/World/AlternativeWorld2.tscn" id="3_j1xtu"]
-[ext_resource type="PackedScene" uid="uid://bub0lhs0k6xe1" path="res://Scenes/World/BaseWorld2.tscn" id="4_yuf6r"]
 [ext_resource type="PackedScene" uid="uid://cskiumpvyp11y" path="res://Scenes/Enemies/TrackingEnemy.tscn" id="5_rdsfo"]
 [ext_resource type="PackedScene" uid="uid://dupxqfrbh63a8" path="res://Scenes/Enemies/ChargingEnemy.tscn" id="6_1s2y1"]
 [ext_resource type="PackedScene" uid="uid://nba5fck4q5dg" path="res://Scenes/Protagonist/HealthBar.tscn" id="9_x81s0"]
@@ -23,15 +20,6 @@ process_mode = 3
 [node name="Map" type="Node" parent="."]
 
 [node name="PhysicsMap" parent="Map" instance=ExtResource("1_pqf45")]
-
-[node name="Visuals" type="Node2D" parent="Map"]
-
-[node name="AlternativeWorld" parent="Map/Visuals" instance=ExtResource("1_liyoy")]
-
-[node name="AlternativeWorld2" parent="Map/Visuals" instance=ExtResource("3_j1xtu")]
-visible = false
-
-[node name="BaseWorld" parent="Map/Visuals" instance=ExtResource("4_yuf6r")]
 
 [node name="Protagonist" parent="." instance=ExtResource("1_658ld")]
 position = Vector2(1395, 433)
@@ -643,3 +631,6 @@ player = NodePath("../../../Protagonist")
 
 [node name="WinCondition" parent="." instance=ExtResource("10_6om6c")]
 position = Vector2(951, 838)
+
+[node name="WinCondition2" parent="." instance=ExtResource("10_6om6c")]
+position = Vector2(3006, -324)
