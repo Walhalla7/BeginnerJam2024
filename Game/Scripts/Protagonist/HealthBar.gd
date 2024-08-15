@@ -9,10 +9,19 @@ extends CanvasLayer
 
 var currHealth = 3
 
+var isRealmCooldown = false
+
+func round_to_dec(num, digit):
+	return round(num * pow(10.0, digit)) / pow(10.0, digit)
+
+func _process(delta):
+	if isRealmCooldown:
+		$VBoxContainer/TimeLeft.text = str(round_to_dec($RealmTimer.time_left, 1))
 
 func _ready():
 	SignalBus.DamageTaken.connect(loseHealth)
 	SignalBus.changeWorld.connect(changeRealm)
+	$VBoxContainer/TimeLeft.hide()
 	
 	health1.show()
 	health2.show()
@@ -23,6 +32,8 @@ func _ready():
 
 func changeRealm(newRealm):
 	$RealmTimer.start()
+	isRealmCooldown = true
+	$VBoxContainer/TimeLeft.show()
 	$VBoxContainer.modulate = Color("#6d6d6d")
 	match  newRealm:
 		"Default":
@@ -44,4 +55,6 @@ func loseHealth():
 
 
 func _on_realm_timer_timeout():
+	isRealmCooldown = false
 	$VBoxContainer.modulate = Color("#ffffff")
+	$VBoxContainer/TimeLeft.hide()

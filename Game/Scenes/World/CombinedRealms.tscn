@@ -7,9 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://bub0lhs0k6xe1" path="res://Scenes/World/BaseWorld2.tscn" id="4_yuf6r"]
 [ext_resource type="PackedScene" uid="uid://cskiumpvyp11y" path="res://Scenes/Enemies/TrackingEnemy.tscn" id="5_rdsfo"]
 [ext_resource type="PackedScene" uid="uid://dupxqfrbh63a8" path="res://Scenes/Enemies/ChargingEnemy.tscn" id="6_1s2y1"]
-[ext_resource type="PackedScene" path="res://Scenes/Protagonist/HealthBar.tscn" id="9_x81s0"]
+[ext_resource type="PackedScene" uid="uid://nba5fck4q5dg" path="res://Scenes/Protagonist/HealthBar.tscn" id="9_x81s0"]
 [ext_resource type="PackedScene" uid="uid://bylfpkbqkg2sn" path="res://Scenes/Enemies/RangedEnemy.tscn" id="9_ywtop"]
-[ext_resource type="PackedScene" path="res://Scenes/WinCondition.tscn" id="10_6om6c"]
+[ext_resource type="PackedScene" uid="uid://euptijtjodqj" path="res://Scenes/WinCondition.tscn" id="10_6om6c"]
 
 [sub_resource type="Curve2D" id="Curve2D_tgqmd"]
 _data = {

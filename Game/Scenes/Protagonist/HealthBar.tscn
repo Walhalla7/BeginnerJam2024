@@ -57,6 +57,11 @@ layout_mode = 2
 text = "Q"
 horizontal_alignment = 1
 
+[node name="TimeLeft" type="Label" parent="VBoxContainer"]
+visible = false
+layout_mode = 2
+horizontal_alignment = 1
+
 [node name="RealmTimer" type="Timer" parent="."]
 wait_time = 3.0
 one_shot = true
