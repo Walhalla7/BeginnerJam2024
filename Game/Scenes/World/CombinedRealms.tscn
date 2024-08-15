@@ -34,7 +34,7 @@ visible = false
 [node name="BaseWorld" parent="Map/Visuals" instance=ExtResource("4_yuf6r")]
 
 [node name="Protagonist" parent="." instance=ExtResource("1_658ld")]
-position = Vector2(991, 259)
+position = Vector2(70.0001, 133)
 scale = Vector2(0.2, 0.2)
 collision_mask = 5
 move_speed = 140.0
@@ -149,7 +149,7 @@ player = NodePath("../../../Protagonist")
 [node name="Office" type="Node" parent="Enemies"]
 
 [node name="ChargingEnemy3" parent="Enemies/Office" node_paths=PackedStringArray("player") instance=ExtResource("6_1s2y1")]
-position = Vector2(758, 827)
+position = Vector2(735, 802)
 rotation = 2.35619
 motion_mode = 1
 wall_min_slide_angle = 0.0
