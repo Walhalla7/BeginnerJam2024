@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bl8s5lkgtmlji"]
+[gd_scene load_steps=12 format=3 uid="uid://bl8s5lkgtmlji"]
 
 [ext_resource type="PackedScene" uid="uid://kars26pa8oho" path="res://Scenes/Protagonist/Protagonist.tscn" id="1_658ld"]
 [ext_resource type="PackedScene" uid="uid://leme7iedb3re" path="res://Scenes/World/AlternativeWorld.tscn" id="1_liyoy"]
@@ -7,8 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://bub0lhs0k6xe1" path="res://Scenes/World/BaseWorld2.tscn" id="4_yuf6r"]
 [ext_resource type="PackedScene" uid="uid://cskiumpvyp11y" path="res://Scenes/Enemies/TrackingEnemy.tscn" id="5_rdsfo"]
 [ext_resource type="PackedScene" uid="uid://dupxqfrbh63a8" path="res://Scenes/Enemies/ChargingEnemy.tscn" id="6_1s2y1"]
-[ext_resource type="PackedScene" uid="uid://nba5fck4q5dg" path="res://Scenes/Protagonist/HealthBar.tscn" id="8_aedfl"]
+[ext_resource type="PackedScene" uid="uid://nba5fck4q5dg" path="res://Scenes/Protagonist/HealthBar.tscn" id="9_x81s0"]
 [ext_resource type="PackedScene" uid="uid://bylfpkbqkg2sn" path="res://Scenes/Enemies/RangedEnemy.tscn" id="9_ywtop"]
+[ext_resource type="PackedScene" uid="uid://euptijtjodqj" path="res://Scenes/WinCondition.tscn" id="10_6om6c"]
 
 [sub_resource type="Curve2D" id="Curve2D_tgqmd"]
 _data = {
@@ -33,7 +34,7 @@ visible = false
 [node name="BaseWorld" parent="Map/Visuals" instance=ExtResource("4_yuf6r")]
 
 [node name="Protagonist" parent="." instance=ExtResource("1_658ld")]
-position = Vector2(991, 259)
+position = Vector2(45, 106)
 scale = Vector2(0.2, 0.2)
 collision_mask = 5
 move_speed = 140.0
@@ -117,3 +118,8 @@ curve = SubResource("Curve2D_tgqmd")
 [node name="PathFollow2D" type="PathFollow2D" parent="Enemies/Starting/ChargingEnemy/Path2D"]
 position = Vector2(3, 6)
 rotation = 2.13753
+
+[node name="HealthBar" parent="." instance=ExtResource("9_x81s0")]
+
+[node name="WinCondition" parent="." instance=ExtResource("10_6om6c")]
+position = Vector2(159, 126)

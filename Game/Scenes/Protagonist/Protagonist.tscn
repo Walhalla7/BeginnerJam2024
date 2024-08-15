@@ -1,16 +1,16 @@
 [gd_scene load_steps=8 format=3 uid="uid://kars26pa8oho"]
 
 [ext_resource type="Script" path="res://Scripts/Protagonist/ProtagonistScript.gd" id="1_wjbix"]
-[ext_resource type="Texture2D" uid="uid://bv5fn7nb50mwj" path="res://icon.svg" id="1_xv1d5"]
 [ext_resource type="PackedScene" uid="uid://s0awo0u8htxb" path="res://Scenes/Components/HealthComponent.tscn" id="2_8fy8c"]
+[ext_resource type="Texture2D" uid="uid://bd2744p8i4s20" path="res://Assets/Sprites/protagonist1-1.png" id="2_s0a73"]
 [ext_resource type="PackedScene" uid="uid://bjnu3j1oenm1i" path="res://Scenes/Components/HitboxComponent.tscn" id="3_aovje"]
 [ext_resource type="Script" path="res://Scripts/Protagonist/ProtagonistSM.gd" id="5_prajq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qioug"]
-size = Vector2(128, 128)
+size = Vector2(73, 128)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dm6tg"]
-size = Vector2(150, 150)
+size = Vector2(84, 142)
 
 [node name="Protagonist" type="CharacterBody2D" groups=["player"]]
 process_mode = 3
@@ -21,9 +21,10 @@ script = ExtResource("1_wjbix")
 [node name="Marker2D" type="Marker2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_xv1d5")
+texture = ExtResource("2_s0a73")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(12.5, 0)
 shape = SubResource("RectangleShape2D_qioug")
 
 [node name="HealthComponent" parent="." instance=ExtResource("2_8fy8c")]
@@ -33,6 +34,7 @@ collision_mask = 12
 health_component = NodePath("../HealthComponent")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
+position = Vector2(12, 0)
 shape = SubResource("RectangleShape2D_dm6tg")
 
 [node name="StateMachine" type="Node" parent="."]

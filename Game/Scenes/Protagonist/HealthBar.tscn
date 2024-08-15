@@ -1,44 +1,55 @@
-[gd_scene load_steps=3 format=3 uid="uid://nba5fck4q5dg"]
+[gd_scene load_steps=6 format=3 uid="uid://nba5fck4q5dg"]
 
 [ext_resource type="Script" path="res://Scripts/Protagonist/HealthBar.gd" id="1_0fokc"]
-[ext_resource type="Texture2D" uid="uid://caydt7dnhise2" path="res://Assets/Temporary/pumpkin1-1.png" id="1_sgr5e"]
+[ext_resource type="Texture2D" uid="uid://dahsbnihww7iw" path="res://Assets/Sprites/generic_heart1-1.png" id="2_18ofb"]
+[ext_resource type="Texture2D" uid="uid://bhdbyfj2em4ex" path="res://Assets/Sprites/jail_bars1-1.png" id="3_roeyp"]
+[ext_resource type="Texture2D" uid="uid://2wjrkrig3riy" path="res://Assets/Sprites/ghost_icon1-1.png" id="4_0it6f"]
 
-[node name="CanvasLayer" type="CanvasLayer"]
+[sub_resource type="Theme" id="Theme_tx1dm"]
+VBoxContainer/constants/separation = -3
+
+[node name="HealthBar" type="CanvasLayer"]
 script = ExtResource("1_0fokc")
 
 [node name="Health_1" type="Sprite2D" parent="."]
 position = Vector2(48, 48)
-scale = Vector2(0.05, 0.05)
-texture = ExtResource("1_sgr5e")
+scale = Vector2(2, 2)
+texture = ExtResource("2_18ofb")
 
 [node name="Health_2" type="Sprite2D" parent="."]
 position = Vector2(132, 48)
-scale = Vector2(0.05, 0.05)
-texture = ExtResource("1_sgr5e")
+scale = Vector2(2, 2)
+texture = ExtResource("2_18ofb")
 
 [node name="Health_3" type="Sprite2D" parent="."]
 position = Vector2(216, 48)
-scale = Vector2(0.05, 0.05)
-texture = ExtResource("1_sgr5e")
+scale = Vector2(2, 2)
+texture = ExtResource("2_18ofb")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-offset_left = 1044.0
-offset_top = 9.0
-offset_right = 1084.0
-offset_bottom = 76.0
-scale = Vector2(2, 2)
-size_flags_vertical = 0
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -131.0
+offset_top = 11.0
+offset_right = -91.0
+offset_bottom = 122.0
+grow_horizontal = 0
+scale = Vector2(3, 3)
+size_flags_horizontal = 10
+size_flags_vertical = 2
+theme = SubResource("Theme_tx1dm")
 
 [node name="SideWorld" type="TextureRect" parent="VBoxContainer"]
 visible = false
 layout_mode = 2
-texture = ExtResource("1_sgr5e")
+texture = ExtResource("3_roeyp")
 expand_mode = 4
 flip_v = true
 
 [node name="MainWorld" type="TextureRect" parent="VBoxContainer"]
 layout_mode = 2
-texture = ExtResource("1_sgr5e")
+texture = ExtResource("4_0it6f")
 expand_mode = 4
 
 [node name="Label" type="Label" parent="VBoxContainer"]

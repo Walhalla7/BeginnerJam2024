@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://euptijtjodqj"]
+
+[ext_resource type="Script" path="res://Scripts/WinCondition.gd" id="1_ijnpd"]
+[ext_resource type="Texture2D" uid="uid://caydt7dnhise2" path="res://Assets/Temporary/pumpkin1-1.png" id="1_kea7a"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sqjha"]
+size = Vector2(30, 30)
+
+[node name="WinCondition" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_ijnpd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_sqjha")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.01, 0.01)
+texture = ExtResource("1_kea7a")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
