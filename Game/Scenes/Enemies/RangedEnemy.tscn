@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://bylfpkbqkg2sn"]
+[gd_scene load_steps=10 format=3 uid="uid://bylfpkbqkg2sn"]
 
 [ext_resource type="Script" path="res://Scripts/Enemies/RangedEnemy.gd" id="1_w1h8l"]
 [ext_resource type="Texture2D" uid="uid://bv5fn7nb50mwj" path="res://icon.svg" id="2_v40sm"]
 [ext_resource type="PackedScene" uid="uid://6wa87p4g41rc" path="res://Scenes/Components/RealmShiftComponent.tscn" id="3_t4r6d"]
 [ext_resource type="PackedScene" uid="uid://b7t81nu7dhqu8" path="res://Scenes/Components/DamageComponent.tscn" id="4_dk2lx"]
 [ext_resource type="Texture2D" uid="uid://caydt7dnhise2" path="res://Assets/Temporary/pumpkin1-1.png" id="5_4e4wa"]
+[ext_resource type="PackedScene" uid="uid://dxumvqij2a3n3" path="res://Scenes/Components/enemy_vision.tscn" id="6_8oitl"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fs2bh"]
 radius = 11.0
@@ -48,6 +49,7 @@ autostart = true
 [node name="RealmShiftComponent" parent="." node_paths=PackedStringArray("sprite", "AltSprite") instance=ExtResource("3_t4r6d")]
 sprite = NodePath("../AnimatedSprite2D")
 AltSprite = NodePath("../Sprite2D")
+thisRealm = "Alt1"
 
 [node name="DamageComponent" parent="." instance=ExtResource("4_dk2lx")]
 
@@ -62,3 +64,5 @@ collide_with_areas = true
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.01, 0.01)
 texture = ExtResource("5_4e4wa")
+
+[node name="EnemyVision" parent="." instance=ExtResource("6_8oitl")]

@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://6wa87p4g41rc" path="res://Scenes/Components/RealmShiftComponent.tscn" id="3_ne7e2"]
 [ext_resource type="Texture2D" uid="uid://caydt7dnhise2" path="res://Assets/Temporary/pumpkin1-1.png" id="5_1sio4"]
 [ext_resource type="PackedScene" uid="uid://cdxhjc8giat21" path="res://Scenes/Components/AttackComponent.tscn" id="5_vydrl"]
+[ext_resource type="PackedScene" uid="uid://dxumvqij2a3n3" path="res://Scenes/Components/enemy_vision.tscn" id="6_v2vym"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fs2bh"]
 radius = 11.0
@@ -48,7 +49,7 @@ autostart = true
 [node name="RealmShiftComponent" parent="." node_paths=PackedStringArray("sprite", "AltSprite") instance=ExtResource("3_ne7e2")]
 sprite = NodePath("../AnimatedSprite2D")
 AltSprite = NodePath("../Sprite2D")
-thisRealm = "Alt2"
+thisRealm = "Alt1"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.01, 0.01)
@@ -58,3 +59,4 @@ texture = ExtResource("5_1sio4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackComponent"]
 shape = SubResource("RectangleShape2D_d07wa")
+[node name="EnemyVision" parent="." instance=ExtResource("6_v2vym")]

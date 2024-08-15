@@ -6,6 +6,10 @@ const SPEED = 75.0
 @export var player: Node2D
 @onready var nav_agent := $NavigationAgent2D as NavigationAgent2D
 @onready var ray_cast := $RayCast2D as RayCast2D
+@onready var enemy_vision := $EnemyVision as Node2D
+@onready var damage_component = $DamageComponent
+
+@onready var path_2d = $Path2D/PathFollow2D
 
 var charging_time=0
 var charging_bool=false
@@ -50,6 +54,7 @@ func check_head_on_collision(collision):
 		stop_charge()
 		
 
+var prev_ennemy_state=0
 func _physics_process(delta):
 	restart_time-=delta
 	#print(nav_agent.get_next_path_position())
@@ -61,6 +66,17 @@ func _physics_process(delta):
 	# Regular Movement paradigm
 	
 	#if ray_cast.is_colliding():
+	if enemy_vision.enemy_state>2:
+		if path_2d:
+			var direction = 1
+			path_2d.progress= 40*delta * direction
+			global_position = path_2d.global_position
+		return
+	else:
+		if prev_ennemy_state!=enemy_vision.enemy_state:
+			stop_charge()
+	prev_ennemy_state=enemy_vision.enemy_state
+		
 	if (ray_cast.get_collider() is CharacterBody2D):
 		if (not charging_bool) and (restart_time<=0):
 			speed=SPEED
@@ -91,7 +107,7 @@ func _physics_process(delta):
 	# if not moving toward player for half second and charging stop charging
 	if charging_bool and (abs(Vector2(0, 1).angle_to(to_local(player.global_position).normalized()))>PI/2):
 		overshot_time+=delta
-		if overshot_time>0.25:
+		if overshot_time>0.7:
 			#print(abs(Vector2(0, 1).angle_to(to_local(player.global_position).normalized())))
 			#print(to_local(player.global_position).normalized())
 			#print(velocity)
@@ -109,13 +125,13 @@ func _physics_process(delta):
 		var direction = (next_path_position - current_agent_position).normalized()
 		velocity = direction * SPEED
 		var current_angle_vector=Vector2(sin(rotation), cos(rotation))
-		var target_angle=current_angle_vector.angle_to(to_local(player.global_position).normalized())
+		var target_angle=current_angle_vector.angle_to(to_local(enemy_vision.target_position).normalized())
 		rotation=target_angle
 	else:
 		charge(delta)	
 	move_and_slide()
 	# Set Target to newest location
-	nav_agent.target_position=player.global_position
+	nav_agent.target_position=enemy_vision.target_position
 		
 		
 
@@ -133,13 +149,17 @@ var turn_speed=15
 var car_power=10000
 var car_decel=30
 
+#var turn_speed=5
+#var car_power=100
+#var car_decel=20
+
 #var turn_speed=30
 #var car_power=100000
 #var car_decel=2000
 
 func charge(delta):
 	var current_angle_vector=Vector2(sin(rotation), cos(rotation))
-	var target_angle=current_angle_vector.angle_to(to_local(player.global_position).normalized())
+	var target_angle=current_angle_vector.angle_to(to_local(enemy_vision.target_position).normalized())
 	var target_angle_delta=target_angle-rotation
 	
 	var r
@@ -157,7 +177,6 @@ func charge(delta):
 
 	# calculate from angle the velocity and speed
 	velocity=Vector2.ZERO
-	velocity.x=speed#*cos(-rotation)
 	#velocity.y=10*cos(rotation)
 	velocity.x=speed*sin(-rotation)
 	velocity.y=speed*cos(-rotation)
