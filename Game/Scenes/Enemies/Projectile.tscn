@@ -1,15 +1,50 @@
-[gd_scene load_steps=5 format=3 uid="uid://cwk3mha4gmps0"]
+[gd_scene load_steps=10 format=3 uid="uid://cwk3mha4gmps0"]
 
 [ext_resource type="Script" path="res://Scripts/Enemies/Projectile.gd" id="1_aalt8"]
-[ext_resource type="Texture2D" uid="uid://bv5fn7nb50mwj" path="res://icon.svg" id="1_dnnki"]
 [ext_resource type="PackedScene" uid="uid://b7t81nu7dhqu8" path="res://Scenes/Components/DamageComponent.tscn" id="2_j52t3"]
+[ext_resource type="Texture2D" uid="uid://b8upyv5q2fxeu" path="res://Assets/SpriteSheets/projectile1-Sheet.png" id="3_g6p1i"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ipsds"]
 radius = 2.0
 height = 12.0
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_agca2"]
+atlas = ExtResource("3_g6p1i")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cxtlt"]
+atlas = ExtResource("3_g6p1i")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8r8iw"]
+atlas = ExtResource("3_g6p1i")
+region = Rect2(512, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0de2x"]
+atlas = ExtResource("3_g6p1i")
+region = Rect2(768, 0, 256, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p42mk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_agca2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cxtlt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8r8iw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0de2x")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
 [node name="Projectile" type="Area2D" groups=["EnemyProjectile"]]
-modulate = Color(0, 0, 0, 1)
 collision_layer = 8
 collision_mask = 2
 script = ExtResource("1_aalt8")
@@ -20,10 +55,10 @@ shape = SubResource("CapsuleShape2D_ipsds")
 
 [node name="DamageComponent" parent="." instance=ExtResource("2_j52t3")]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-rotation = 1.5708
-scale = Vector2(0.03, 0.1)
-texture = ExtResource("1_dnnki")
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.15, 0.15)
+sprite_frames = SubResource("SpriteFrames_p42mk")
+autoplay = "default"
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_projectile_body_entered"]

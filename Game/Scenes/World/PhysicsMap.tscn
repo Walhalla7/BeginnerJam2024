@@ -686,6 +686,8 @@ texture_region_size = Vector2i(128, 128)
 texture = ExtResource("5_t78b6")
 texture_region_size = Vector2i(128, 128)
 0:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_61i71"]
 texture = ExtResource("6_a460s")
@@ -878,7 +880,7 @@ sprite = NodePath("..")
 
 [node name="PhysicsMap2" type="TileMap" parent="NavigationRegion2D"]
 position = Vector2(-25, -51)
-scale = Vector2(0.125, 0.125)
+scale = Vector2(0.12478, 0.122377)
 tile_set = SubResource("TileSet_csluu")
 format = 2
 layer_0/name = "Wall"
