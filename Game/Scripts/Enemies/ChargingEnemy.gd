@@ -19,6 +19,7 @@ var restart_time=0
 
 func _ready():
 	call_deferred("seeker_setup")
+	$AnimatedSprite2D.global_rotation = 0
 	$Sprite2D.global_rotation = 0
 	$Sprite2D.play("default")
 
@@ -131,7 +132,18 @@ func _physics_process(delta):
 		var target_angle=current_angle_vector.angle_to(to_local(enemy_vision.target_position).normalized())
 		rotation=target_angle
 	else:
-		charge(delta)	
+		charge(delta)
+		
+	if velocity.x < 0:
+		$AnimatedSprite2D.flip_h = true
+	elif velocity.x > 0:
+		$AnimatedSprite2D.flip_h = false
+		
+	if velocity.x > 0 || velocity.y > 0: 
+		$AnimatedSprite2D.play("default")
+	else:
+		$AnimatedSprite2D.play("Idle")	
+	$AnimatedSprite2D.global_rotation = 0
 	move_and_slide()
 	# Set Target to newest location
 	nav_agent.target_position=enemy_vision.target_position
