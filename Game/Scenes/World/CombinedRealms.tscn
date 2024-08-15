@@ -22,7 +22,7 @@ process_mode = 3
 [node name="PhysicsMap" parent="Map" instance=ExtResource("1_pqf45")]
 
 [node name="Protagonist" parent="." instance=ExtResource("1_658ld")]
-position = Vector2(1395, 433)
+position = Vector2(2889, -330)
 scale = Vector2(0.5, 0.5)
 collision_mask = 5
 move_speed = 140.0
@@ -633,4 +633,7 @@ player = NodePath("../../../Protagonist")
 position = Vector2(951, 838)
 
 [node name="WinCondition2" parent="." instance=ExtResource("10_6om6c")]
-position = Vector2(3006, -324)
+z_index = 5
+position = Vector2(3089, -335)
+rotation = 1.5708
+scale = Vector2(1.055, 1.055)

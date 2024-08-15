@@ -1,10 +1,10 @@
 [gd_scene load_steps=4 format=3 uid="uid://euptijtjodqj"]
 
 [ext_resource type="Script" path="res://Scripts/WinCondition.gd" id="1_ijnpd"]
-[ext_resource type="Texture2D" uid="uid://caydt7dnhise2" path="res://Assets/Temporary/pumpkin1-1.png" id="1_kea7a"]
+[ext_resource type="Texture2D" uid="uid://dtkful5338cfi" path="res://Assets/SpriteSheets/jail_bars2-2.png" id="2_bpw3f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sqjha"]
-size = Vector2(30, 30)
+size = Vector2(40, 40)
 
 [node name="WinCondition" type="Area2D"]
 collision_layer = 0
@@ -15,8 +15,9 @@ script = ExtResource("1_ijnpd")
 shape = SubResource("RectangleShape2D_sqjha")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.01, 0.01)
-texture = ExtResource("1_kea7a")
+modulate = Color(0.138358, 0.470398, 1, 1)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_bpw3f")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
