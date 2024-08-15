@@ -38,6 +38,7 @@ func _on_realm_cooldown_timeout():
 				
 func _input(event):
 	if event.is_action_released("ChangeWorld") and warpReady:
+		$"../AnimatedSprite2D".play("default")
 		warpReady = false
 		RealmTimer.start()
 		currRealm -= 1
@@ -89,16 +90,17 @@ func _get_transition(delta):
 			if abs(int(parent.velocity.x)) < 0.9 && abs(int(parent.velocity.y)) < 0.9 :
 				return states.IDLE
 				
+				
 	return null
 
 #define behaviors while enetering into specific state
 func _enter_state(new_state, old_state):
 	match new_state:
 		states.IDLE:
-			pass
+			$"../Sprite2D".play("Idle")
 			
 		states.WALKING:
-			pass
+			$"../Sprite2D".play("default")
 
 #define behaviors while exiting out of specific state
 func _exit_state(old_state, new_state):
