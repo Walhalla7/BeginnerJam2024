@@ -34,7 +34,7 @@ visible = false
 [node name="BaseWorld" parent="Map/Visuals" instance=ExtResource("4_yuf6r")]
 
 [node name="Protagonist" parent="." instance=ExtResource("1_658ld")]
-position = Vector2(70.0001, 133)
+position = Vector2(1395, 433)
 scale = Vector2(0.2, 0.2)
 collision_mask = 5
 move_speed = 140.0
@@ -389,6 +389,252 @@ player = NodePath("../../../Protagonist")
 [node name="ChargingEnemy8" parent="Enemies/Fig8" node_paths=PackedStringArray("player") instance=ExtResource("6_1s2y1")]
 position = Vector2(1484, 800)
 rotation = -3.14159
+motion_mode = 1
+wall_min_slide_angle = 0.0
+player = NodePath("../../../Protagonist")
+
+[node name="Square" type="Node" parent="Enemies"]
+
+[node name="TrackingEnemy" parent="Enemies/Square" node_paths=PackedStringArray("player") instance=ExtResource("5_rdsfo")]
+position = Vector2(2142, 213)
+rotation = 1.5708
+motion_mode = 1
+wall_min_slide_angle = 0.0
+player = NodePath("../../../Protagonist")
+
+[node name="RangedEnemy" parent="Enemies/Square" node_paths=PackedStringArray("player") instance=ExtResource("9_ywtop")]
+position = Vector2(2159, 333)
+player = NodePath("../../../Protagonist")
+
+[node name="ChargingEnemy" parent="Enemies/Square" node_paths=PackedStringArray("player") instance=ExtResource("6_1s2y1")]
+position = Vector2(2308, 325)
+rotation = -3.14159
+motion_mode = 1
+wall_min_slide_angle = 0.0
+player = NodePath("../../../Protagonist")
+
+[node name="RangedEnemy2" parent="Enemies/Square" node_paths=PackedStringArray("player") instance=ExtResource("9_ywtop")]
+position = Vector2(1507, -148)
+player = NodePath("../../../Protagonist")
+
+[node name="RangedEnemy3" parent="Enemies/Square" node_paths=PackedStringArray("player") instance=ExtResource("9_ywtop")]
+position = Vector2(1654, -141)
+player = NodePath("../../../Protagonist")
+
+[node name="RangedEnemy4" parent="Enemies/Square" node_paths=PackedStringArray("player") instance=ExtResource("9_ywtop")]
+position = Vector2(1432, -80)
+player = NodePath("../../../Protagonist")
+
+[node name="RangedEnemy5" parent="Enemies/Square" node_paths=PackedStringArray("player") instance=ExtResource("9_ywtop")]
+position = Vector2(1746, -64)
+player = NodePath("../../../Protagonist")
+
+[node name="RangedEnemy6" parent="Enemies/Square" node_paths=PackedStringArray("player") instance=ExtResource("9_ywtop")]
+position = Vector2(1586, -8)
+player = NodePath("../../../Protagonist")
+
+[node name="ChargingEnemy2" parent="Enemies/Square" node_paths=PackedStringArray("player") instance=ExtResource("6_1s2y1")]
+position = Vector2(1593, 116)
+motion_mode = 1
+wall_min_slide_angle = 0.0
+player = NodePath("../../../Protagonist")
+
+[node name="ChargingEnemy3" parent="Enemies/Square" node_paths=PackedStringArray("player") instance=ExtResource("6_1s2y1")]
+position = Vector2(1598, -277)
+motion_mode = 1
+wall_min_slide_angle = 0.0
+player = NodePath("../../../Protagonist")
+
+[node name="ChargingEnemy4" parent="Enemies/Square" node_paths=PackedStringArray("player") instance=ExtResource("6_1s2y1")]
+position = Vector2(1752, 0)
+rotation = -1.5708
+motion_mode = 1
+wall_min_slide_angle = 0.0
+player = NodePath("../../../Protagonist")
+
+[node name="ChargingEnemy5" parent="Enemies/Square" node_paths=PackedStringArray("player") instance=ExtResource("6_1s2y1")]
+position = Vector2(1419, -28)
+rotation = 0.811578
+motion_mode = 1
+wall_min_slide_angle = 0.0
+player = NodePath("../../../Protagonist")
+
+[node name="ChargingEnemy6" parent="Enemies/Square" node_paths=PackedStringArray("player") instance=ExtResource("6_1s2y1")]
+position = Vector2(2308, 325)
+rotation = -3.14159
+motion_mode = 1
+wall_min_slide_angle = 0.0
+player = NodePath("../../../Protagonist")
+
+[node name="ChargingEnemy7" parent="Enemies/Square" node_paths=PackedStringArray("player") instance=ExtResource("6_1s2y1")]
+position = Vector2(2308, 325)
+rotation = -3.14159
+motion_mode = 1
+wall_min_slide_angle = 0.0
+player = NodePath("../../../Protagonist")
+
+[node name="RangedEnemy7" parent="Enemies/Square" node_paths=PackedStringArray("player") instance=ExtResource("9_ywtop")]
+position = Vector2(1335, -215)
+player = NodePath("../../../Protagonist")
+
+[node name="RangedEnemy8" parent="Enemies/Square" node_paths=PackedStringArray("player") instance=ExtResource("9_ywtop")]
+position = Vector2(1284, -220)
+player = NodePath("../../../Protagonist")
+
+[node name="RangedEnemy9" parent="Enemies/Square" node_paths=PackedStringArray("player") instance=ExtResource("9_ywtop")]
+position = Vector2(1244, -212)
+player = NodePath("../../../Protagonist")
+
+[node name="ChargingEnemy8" parent="Enemies/Square" node_paths=PackedStringArray("player") instance=ExtResource("6_1s2y1")]
+position = Vector2(1291, -232)
+motion_mode = 1
+wall_min_slide_angle = 0.0
+player = NodePath("../../../Protagonist")
+
+[node name="ChargingEnemy9" parent="Enemies/Square" node_paths=PackedStringArray("player") instance=ExtResource("6_1s2y1")]
+position = Vector2(1277, -173)
+motion_mode = 1
+wall_min_slide_angle = 0.0
+player = NodePath("../../../Protagonist")
+
+[node name="ChargingEnemy10" parent="Enemies/Square" node_paths=PackedStringArray("player") instance=ExtResource("6_1s2y1")]
+position = Vector2(1277, -88)
+motion_mode = 1
+wall_min_slide_angle = 0.0
+player = NodePath("../../../Protagonist")
+
+[node name="ChargingEnemy11" parent="Enemies/Square" node_paths=PackedStringArray("player") instance=ExtResource("6_1s2y1")]
+position = Vector2(1284, 290)
+rotation = 4.71239
+motion_mode = 1
+wall_min_slide_angle = 0.0
+player = NodePath("../../../Protagonist")
+
+[node name="TrackingEnemy2" parent="Enemies/Square" node_paths=PackedStringArray("player") instance=ExtResource("5_rdsfo")]
+position = Vector2(1910, 305)
+rotation = 1.5708
+motion_mode = 1
+wall_min_slide_angle = 0.0
+player = NodePath("../../../Protagonist")
+
+[node name="TrackingEnemy3" parent="Enemies/Square" node_paths=PackedStringArray("player") instance=ExtResource("5_rdsfo")]
+position = Vector2(1740, 242)
+rotation = 1.5708
+motion_mode = 1
+wall_min_slide_angle = 0.0
+player = NodePath("../../../Protagonist")
+
+[node name="TrackingEnemy4" parent="Enemies/Square" node_paths=PackedStringArray("player") instance=ExtResource("5_rdsfo")]
+position = Vector2(1901, 215)
+rotation = 1.5708
+motion_mode = 1
+wall_min_slide_angle = 0.0
+player = NodePath("../../../Protagonist")
+
+[node name="ChargingEnemy12" parent="Enemies/Square" node_paths=PackedStringArray("player") instance=ExtResource("6_1s2y1")]
+position = Vector2(1864, 302)
+rotation = 3.24631
+motion_mode = 1
+wall_min_slide_angle = 0.0
+player = NodePath("../../../Protagonist")
+
+[node name="ChargingEnemy13" parent="Enemies/Square" node_paths=PackedStringArray("player") instance=ExtResource("6_1s2y1")]
+position = Vector2(1588, 256)
+rotation = 4.71239
+motion_mode = 1
+wall_min_slide_angle = 0.0
+player = NodePath("../../../Protagonist")
+
+[node name="base2" type="Node" parent="Enemies"]
+
+[node name="TrackingEnemy" parent="Enemies/base2" node_paths=PackedStringArray("player") instance=ExtResource("5_rdsfo")]
+position = Vector2(178, 1145)
+rotation = 1.5708
+motion_mode = 1
+wall_min_slide_angle = 0.0
+player = NodePath("../../../Protagonist")
+
+[node name="RangedEnemy" parent="Enemies/base2" node_paths=PackedStringArray("player") instance=ExtResource("9_ywtop")]
+position = Vector2(251, 1161)
+player = NodePath("../../../Protagonist")
+
+[node name="ChargingEnemy" parent="Enemies/base2" node_paths=PackedStringArray("player") instance=ExtResource("6_1s2y1")]
+position = Vector2(160, 1373)
+rotation = -3.14159
+motion_mode = 1
+wall_min_slide_angle = 0.0
+player = NodePath("../../../Protagonist")
+
+[node name="Ending" type="Node" parent="Enemies"]
+
+[node name="TrackingEnemy" parent="Enemies/Ending" node_paths=PackedStringArray("player") instance=ExtResource("5_rdsfo")]
+position = Vector2(2479, -392)
+rotation = 4.71239
+motion_mode = 1
+wall_min_slide_angle = 0.0
+player = NodePath("../../../Protagonist")
+
+[node name="RangedEnemy" parent="Enemies/Ending" node_paths=PackedStringArray("player") instance=ExtResource("9_ywtop")]
+position = Vector2(2509, -125)
+player = NodePath("../../../Protagonist")
+
+[node name="ChargingEnemy" parent="Enemies/Ending" node_paths=PackedStringArray("player") instance=ExtResource("6_1s2y1")]
+position = Vector2(2568, -242)
+rotation = -3.14159
+motion_mode = 1
+wall_min_slide_angle = 0.0
+player = NodePath("../../../Protagonist")
+
+[node name="ChargingEnemy2" parent="Enemies/Ending" node_paths=PackedStringArray("player") instance=ExtResource("6_1s2y1")]
+position = Vector2(2708, -235)
+rotation = -3.14159
+motion_mode = 1
+wall_min_slide_angle = 0.0
+player = NodePath("../../../Protagonist")
+
+[node name="ChargingEnemy3" parent="Enemies/Ending" node_paths=PackedStringArray("player") instance=ExtResource("6_1s2y1")]
+position = Vector2(2721, -412)
+motion_mode = 1
+wall_min_slide_angle = 0.0
+player = NodePath("../../../Protagonist")
+
+[node name="ChargingEnemy4" parent="Enemies/Ending" node_paths=PackedStringArray("player") instance=ExtResource("6_1s2y1")]
+position = Vector2(2530, -414)
+motion_mode = 1
+wall_min_slide_angle = 0.0
+player = NodePath("../../../Protagonist")
+
+[node name="ChargingEnemy5" parent="Enemies/Ending" node_paths=PackedStringArray("player") instance=ExtResource("6_1s2y1")]
+position = Vector2(2515, -330)
+rotation = -1.57079
+motion_mode = 1
+wall_min_slide_angle = 0.0
+player = NodePath("../../../Protagonist")
+
+[node name="TrackingEnemy2" parent="Enemies/Ending" node_paths=PackedStringArray("player") instance=ExtResource("5_rdsfo")]
+position = Vector2(2475, -352)
+rotation = 1.5708
+motion_mode = 1
+wall_min_slide_angle = 0.0
+player = NodePath("../../../Protagonist")
+
+[node name="TrackingEnemy3" parent="Enemies/Ending" node_paths=PackedStringArray("player") instance=ExtResource("5_rdsfo")]
+position = Vector2(2481, -313)
+rotation = 4.71239
+motion_mode = 1
+wall_min_slide_angle = 0.0
+player = NodePath("../../../Protagonist")
+
+[node name="TrackingEnemy4" parent="Enemies/Ending" node_paths=PackedStringArray("player") instance=ExtResource("5_rdsfo")]
+position = Vector2(2480, -262)
+rotation = 1.5708
+motion_mode = 1
+wall_min_slide_angle = 0.0
+player = NodePath("../../../Protagonist")
+
+[node name="TrackingEnemy5" parent="Enemies/Ending" node_paths=PackedStringArray("player") instance=ExtResource("5_rdsfo")]
+position = Vector2(2616, -330)
+rotation = 1.5708
 motion_mode = 1
 wall_min_slide_angle = 0.0
 player = NodePath("../../../Protagonist")
