@@ -18,11 +18,13 @@ extends CharacterBody2D
 
 func _on_health_component_death():
 	print("Player has died")
+	$Hurt.play()
 	SignalBus.emit_signal("DamageTaken")
 	SignalBus.emit_signal("game_over")
 
 func _on_health_component_hurt():
 	SignalBus.emit_signal("DamageTaken")
+	$Hurt.play()
 	print("Player has been hurt")
 
 

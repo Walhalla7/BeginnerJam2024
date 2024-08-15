@@ -23,7 +23,7 @@ process_mode = 3
 [node name="PhysicsMap" parent="Map" instance=ExtResource("1_pqf45")]
 
 [node name="Protagonist" parent="." instance=ExtResource("1_658ld")]
-position = Vector2(2889, -330)
+position = Vector2(58, 110)
 scale = Vector2(0.5, 0.5)
 collision_mask = 5
 move_speed = 140.0
@@ -639,11 +639,493 @@ position = Vector2(3089, -335)
 rotation = 1.5708
 scale = Vector2(1.055, 1.055)
 
-[node name="Torch" parent="." instance=ExtResource("8_7shvu")]
-position = Vector2(2873, -409)
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+color = Color(0.190688, 0.349067, 0.389799, 1)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.141336, 0.276004, 0.331879, 1)
 
-[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
-color = Color(0.0373437, 0.0991529, 0.114994, 1)
+[node name="Torches" type="Node" parent="."]
+
+[node name="TL" type="Node2D" parent="Torches"]
+
+[node name="Torch" parent="Torches/TL" instance=ExtResource("8_7shvu")]
+position = Vector2(1405, -454)
+
+[node name="Torch2" parent="Torches/TL" instance=ExtResource("8_7shvu")]
+position = Vector2(1516, -454)
+
+[node name="Torch3" parent="Torches/TL" instance=ExtResource("8_7shvu")]
+position = Vector2(1300, -454)
+
+[node name="Torch4" parent="Torches/TL" instance=ExtResource("8_7shvu")]
+position = Vector2(1185, -452)
+
+[node name="Torch5" parent="Torches/TL" instance=ExtResource("8_7shvu")]
+position = Vector2(1071, -451)
+
+[node name="Torch6" parent="Torches/TL" instance=ExtResource("8_7shvu")]
+position = Vector2(1624, -451)
+
+[node name="TD" type="Node2D" parent="Torches"]
+rotation = 1.5708
+
+[node name="Torch" parent="Torches/TD" instance=ExtResource("8_7shvu")]
+position = Vector2(1405, -454)
+
+[node name="Torch2" parent="Torches/TD" instance=ExtResource("8_7shvu")]
+position = Vector2(1516, -454)
+
+[node name="Torch3" parent="Torches/TD" instance=ExtResource("8_7shvu")]
+position = Vector2(1300, -454)
+
+[node name="Torch4" parent="Torches/TD" instance=ExtResource("8_7shvu")]
+position = Vector2(1185, -452)
+
+[node name="Torch5" parent="Torches/TD" instance=ExtResource("8_7shvu")]
+position = Vector2(1071, -451)
+
+[node name="Torch6" parent="Torches/TD" instance=ExtResource("8_7shvu")]
+position = Vector2(1624, -451)
+
+[node name="End" type="Node" parent="Torches"]
+
+[node name="Torch5" parent="Torches/End" instance=ExtResource("8_7shvu")]
+position = Vector2(2527, -413)
+
+[node name="Torch" parent="Torches/End" instance=ExtResource("8_7shvu")]
+position = Vector2(2873, -409)
+
+[node name="Torch2" parent="Torches/End" instance=ExtResource("8_7shvu")]
+position = Vector2(2868, -230)
+
+[node name="Torch3" parent="Torches/End" instance=ExtResource("8_7shvu")]
+position = Vector2(2729, -425)
+
+[node name="Torch4" parent="Torches/End" instance=ExtResource("8_7shvu")]
+position = Vector2(2699, -232)
+
+[node name="Torch6" parent="Torches/End" instance=ExtResource("8_7shvu")]
+position = Vector2(2524, -232)
+
+[node name="Torch7" parent="Torches/End" instance=ExtResource("8_7shvu")]
+position = Vector2(2361, -422)
+
+[node name="Torch8" parent="Torches/End" instance=ExtResource("8_7shvu")]
+position = Vector2(2351, -230)
+
+[node name="Torch9" parent="Torches/End" instance=ExtResource("8_7shvu")]
+position = Vector2(2040, -328)
+
+[node name="Torch10" parent="Torches/End" instance=ExtResource("8_7shvu")]
+position = Vector2(2179, -228)
+
+[node name="Torch11" parent="Torches/End" instance=ExtResource("8_7shvu")]
+position = Vector2(2176, -433)
+
+[node name="Torch12" parent="Torches/End" instance=ExtResource("8_7shvu")]
+position = Vector2(1997, -328)
+
+[node name="Torch13" parent="Torches/End" instance=ExtResource("8_7shvu")]
+position = Vector2(2873, -409)
+
+[node name="Torch" parent="Torches" instance=ExtResource("8_7shvu")]
+position = Vector2(2873, -409)
+
+[node name="Square" type="Node" parent="Torches"]
+
+[node name="Torch" parent="Torches/Square" instance=ExtResource("8_7shvu")]
+position = Vector2(1836, -205)
+
+[node name="Torch2" parent="Torches/Square" instance=ExtResource("8_7shvu")]
+position = Vector2(1836, -205)
+
+[node name="Torch3" parent="Torches/Square" instance=ExtResource("8_7shvu")]
+position = Vector2(2168, -154)
+
+[node name="Torch4" parent="Torches/Square" instance=ExtResource("8_7shvu")]
+position = Vector2(1918, -147)
+
+[node name="Torch5" parent="Torches/Square" instance=ExtResource("8_7shvu")]
+position = Vector2(1729, -283)
+
+[node name="Torch6" parent="Torches/Square" instance=ExtResource("8_7shvu")]
+position = Vector2(1735, -430)
+
+[node name="Torch7" parent="Torches/Square" instance=ExtResource("8_7shvu")]
+position = Vector2(1493, -208)
+
+[node name="Torch8" parent="Torches/Square" instance=ExtResource("8_7shvu")]
+position = Vector2(1707, -212)
+
+[node name="Torch9" parent="Torches/Square" instance=ExtResource("8_7shvu")]
+position = Vector2(1828, -76)
+
+[node name="Torch10" parent="Torches/Square" instance=ExtResource("8_7shvu")]
+position = Vector2(1707, -81)
+
+[node name="Torch11" parent="Torches/Square" instance=ExtResource("8_7shvu")]
+position = Vector2(1495, -98)
+
+[node name="Torch12" parent="Torches/Square" instance=ExtResource("8_7shvu")]
+position = Vector2(1359, -94)
+
+[node name="Torch13" parent="Torches/Square" instance=ExtResource("8_7shvu")]
+position = Vector2(1360, -205)
+
+[node name="Torch14" parent="Torches/Square" instance=ExtResource("8_7shvu")]
+position = Vector2(1842, 47)
+
+[node name="Torch15" parent="Torches/Square" instance=ExtResource("8_7shvu")]
+position = Vector2(1847, 187)
+
+[node name="TD" type="Node2D" parent="Torches/Square"]
+position = Vector2(1462, -1120)
+rotation = 1.5708
+
+[node name="Torch" parent="Torches/Square/TD" instance=ExtResource("8_7shvu")]
+position = Vector2(1405, -454)
+
+[node name="Torch2" parent="Torches/Square/TD" instance=ExtResource("8_7shvu")]
+position = Vector2(1516, -454)
+
+[node name="Torch3" parent="Torches/Square/TD" instance=ExtResource("8_7shvu")]
+position = Vector2(1300, -454)
+
+[node name="Torch4" parent="Torches/Square/TD" instance=ExtResource("8_7shvu")]
+position = Vector2(1185, -452)
+
+[node name="Torch5" parent="Torches/Square/TD" instance=ExtResource("8_7shvu")]
+position = Vector2(1071, -451)
+
+[node name="Torch6" parent="Torches/Square/TD" instance=ExtResource("8_7shvu")]
+position = Vector2(1624, -451)
+
+[node name="TL" type="Node2D" parent="Torches/Square"]
+position = Vector2(401, 783)
+
+[node name="Torch" parent="Torches/Square/TL" instance=ExtResource("8_7shvu")]
+position = Vector2(1405, -454)
+
+[node name="Torch2" parent="Torches/Square/TL" instance=ExtResource("8_7shvu")]
+position = Vector2(1516, -454)
+
+[node name="Torch3" parent="Torches/Square/TL" instance=ExtResource("8_7shvu")]
+position = Vector2(1300, -454)
+
+[node name="Torch4" parent="Torches/Square/TL" instance=ExtResource("8_7shvu")]
+position = Vector2(1185, -452)
+
+[node name="Torch5" parent="Torches/Square/TL" instance=ExtResource("8_7shvu")]
+position = Vector2(1071, -451)
+
+[node name="Torch6" parent="Torches/Square/TL" instance=ExtResource("8_7shvu")]
+position = Vector2(1624, -451)
+
+[node name="TL2" type="Node2D" parent="Torches/Square"]
+position = Vector2(401, 828)
+
+[node name="Torch" parent="Torches/Square/TL2" instance=ExtResource("8_7shvu")]
+position = Vector2(1405, -454)
+
+[node name="Torch2" parent="Torches/Square/TL2" instance=ExtResource("8_7shvu")]
+position = Vector2(1516, -454)
+
+[node name="Torch3" parent="Torches/Square/TL2" instance=ExtResource("8_7shvu")]
+position = Vector2(1300, -454)
+
+[node name="Torch4" parent="Torches/Square/TL2" instance=ExtResource("8_7shvu")]
+position = Vector2(1185, -452)
+
+[node name="Torch5" parent="Torches/Square/TL2" instance=ExtResource("8_7shvu")]
+position = Vector2(1071, -451)
+
+[node name="Torch6" parent="Torches/Square/TL2" instance=ExtResource("8_7shvu")]
+position = Vector2(1624, -451)
+
+[node name="TD2" type="Node2D" parent="Torches/Square"]
+position = Vector2(755, -1336)
+rotation = 1.5708
+
+[node name="Torch" parent="Torches/Square/TD2" instance=ExtResource("8_7shvu")]
+position = Vector2(1405, -454)
+
+[node name="Torch2" parent="Torches/Square/TD2" instance=ExtResource("8_7shvu")]
+position = Vector2(1516, -454)
+
+[node name="Torch3" parent="Torches/Square/TD2" instance=ExtResource("8_7shvu")]
+position = Vector2(1300, -454)
+
+[node name="Torch4" parent="Torches/Square/TD2" instance=ExtResource("8_7shvu")]
+position = Vector2(1185, -452)
+
+[node name="Torch5" parent="Torches/Square/TD2" instance=ExtResource("8_7shvu")]
+position = Vector2(1071, -451)
+
+[node name="Torch6" parent="Torches/Square/TD2" instance=ExtResource("8_7shvu")]
+position = Vector2(1624, -451)
+
+[node name="Fig8" type="Node" parent="Torches"]
+
+[node name="TD" type="Node2D" parent="Torches/Fig8"]
+position = Vector2(1147, -617)
+rotation = 1.5708
+
+[node name="Torch" parent="Torches/Fig8/TD" instance=ExtResource("8_7shvu")]
+position = Vector2(1405, -454)
+
+[node name="Torch2" parent="Torches/Fig8/TD" instance=ExtResource("8_7shvu")]
+position = Vector2(1516, -454)
+
+[node name="Torch3" parent="Torches/Fig8/TD" instance=ExtResource("8_7shvu")]
+position = Vector2(1300, -454)
+
+[node name="Torch4" parent="Torches/Fig8/TD" instance=ExtResource("8_7shvu")]
+position = Vector2(1185, -452)
+
+[node name="Torch5" parent="Torches/Fig8/TD" instance=ExtResource("8_7shvu")]
+position = Vector2(1071, -451)
+
+[node name="Torch6" parent="Torches/Fig8/TD" instance=ExtResource("8_7shvu")]
+position = Vector2(1624, -451)
+
+[node name="TD2" type="Node2D" parent="Torches/Fig8"]
+position = Vector2(733, -725)
+rotation = 1.5708
+
+[node name="Torch" parent="Torches/Fig8/TD2" instance=ExtResource("8_7shvu")]
+position = Vector2(1405, -454)
+
+[node name="Torch2" parent="Torches/Fig8/TD2" instance=ExtResource("8_7shvu")]
+position = Vector2(1516, -454)
+
+[node name="Torch3" parent="Torches/Fig8/TD2" instance=ExtResource("8_7shvu")]
+position = Vector2(1300, -454)
+
+[node name="Torch4" parent="Torches/Fig8/TD2" instance=ExtResource("8_7shvu")]
+position = Vector2(1185, -452)
+
+[node name="Torch5" parent="Torches/Fig8/TD2" instance=ExtResource("8_7shvu")]
+position = Vector2(1071, -451)
+
+[node name="Torch6" parent="Torches/Fig8/TD2" instance=ExtResource("8_7shvu")]
+position = Vector2(1624, -451)
+
+[node name="TL" type="Node2D" parent="Torches/Fig8"]
+position = Vector2(123, 1091)
+
+[node name="Torch" parent="Torches/Fig8/TL" instance=ExtResource("8_7shvu")]
+position = Vector2(1405, -454)
+
+[node name="Torch2" parent="Torches/Fig8/TL" instance=ExtResource("8_7shvu")]
+position = Vector2(1516, -454)
+
+[node name="Torch3" parent="Torches/Fig8/TL" instance=ExtResource("8_7shvu")]
+position = Vector2(1300, -454)
+
+[node name="Torch4" parent="Torches/Fig8/TL" instance=ExtResource("8_7shvu")]
+position = Vector2(1185, -452)
+
+[node name="Torch5" parent="Torches/Fig8/TL" instance=ExtResource("8_7shvu")]
+position = Vector2(1071, -451)
+
+[node name="Torch6" parent="Torches/Fig8/TL" instance=ExtResource("8_7shvu")]
+position = Vector2(1624, -451)
+
+[node name="TL2" type="Node2D" parent="Torches/Fig8"]
+position = Vector2(-53, 1435)
+
+[node name="Torch" parent="Torches/Fig8/TL2" instance=ExtResource("8_7shvu")]
+position = Vector2(1405, -454)
+
+[node name="Torch2" parent="Torches/Fig8/TL2" instance=ExtResource("8_7shvu")]
+position = Vector2(1516, -454)
+
+[node name="Torch3" parent="Torches/Fig8/TL2" instance=ExtResource("8_7shvu")]
+position = Vector2(1300, -454)
+
+[node name="Torch4" parent="Torches/Fig8/TL2" instance=ExtResource("8_7shvu")]
+position = Vector2(1185, -452)
+
+[node name="Torch5" parent="Torches/Fig8/TL2" instance=ExtResource("8_7shvu")]
+position = Vector2(1071, -451)
+
+[node name="Torch6" parent="Torches/Fig8/TL2" instance=ExtResource("8_7shvu")]
+position = Vector2(1624, -451)
+
+[node name="LongHall" type="Node" parent="Torches"]
+
+[node name="TL" type="Node2D" parent="Torches/LongHall"]
+position = Vector2(-565, 1525)
+
+[node name="Torch" parent="Torches/LongHall/TL" instance=ExtResource("8_7shvu")]
+position = Vector2(1405, -454)
+
+[node name="Torch2" parent="Torches/LongHall/TL" instance=ExtResource("8_7shvu")]
+position = Vector2(1516, -454)
+
+[node name="Torch3" parent="Torches/LongHall/TL" instance=ExtResource("8_7shvu")]
+position = Vector2(1300, -454)
+
+[node name="Torch4" parent="Torches/LongHall/TL" instance=ExtResource("8_7shvu")]
+position = Vector2(1185, -452)
+
+[node name="Torch5" parent="Torches/LongHall/TL" instance=ExtResource("8_7shvu")]
+position = Vector2(1071, -451)
+
+[node name="Torch6" parent="Torches/LongHall/TL" instance=ExtResource("8_7shvu")]
+position = Vector2(1624, -451)
+
+[node name="TL2" type="Node2D" parent="Torches/LongHall"]
+position = Vector2(-716, 1375)
+
+[node name="Torch" parent="Torches/LongHall/TL2" instance=ExtResource("8_7shvu")]
+position = Vector2(1405, -454)
+
+[node name="Torch2" parent="Torches/LongHall/TL2" instance=ExtResource("8_7shvu")]
+position = Vector2(1516, -454)
+
+[node name="Torch3" parent="Torches/LongHall/TL2" instance=ExtResource("8_7shvu")]
+position = Vector2(1300, -454)
+
+[node name="Torch4" parent="Torches/LongHall/TL2" instance=ExtResource("8_7shvu")]
+position = Vector2(1185, -452)
+
+[node name="Torch5" parent="Torches/LongHall/TL2" instance=ExtResource("8_7shvu")]
+position = Vector2(1071, -451)
+
+[node name="Torch6" parent="Torches/LongHall/TL2" instance=ExtResource("8_7shvu")]
+position = Vector2(1624, -451)
+
+[node name="TL3" type="Node2D" parent="Torches/LongHall"]
+position = Vector2(-716, 1375)
+
+[node name="Torch" parent="Torches/LongHall/TL3" instance=ExtResource("8_7shvu")]
+position = Vector2(1405, -454)
+
+[node name="Torch2" parent="Torches/LongHall/TL3" instance=ExtResource("8_7shvu")]
+position = Vector2(1516, -454)
+
+[node name="Torch3" parent="Torches/LongHall/TL3" instance=ExtResource("8_7shvu")]
+position = Vector2(1300, -454)
+
+[node name="Torch4" parent="Torches/LongHall/TL3" instance=ExtResource("8_7shvu")]
+position = Vector2(1185, -452)
+
+[node name="Torch5" parent="Torches/LongHall/TL3" instance=ExtResource("8_7shvu")]
+position = Vector2(1071, -451)
+
+[node name="Torch6" parent="Torches/LongHall/TL3" instance=ExtResource("8_7shvu")]
+position = Vector2(1624, -451)
+
+[node name="Office" type="Node" parent="Torches"]
+
+[node name="TL" type="Node2D" parent="Torches/Office"]
+position = Vector2(-993, 1033)
+
+[node name="Torch" parent="Torches/Office/TL" instance=ExtResource("8_7shvu")]
+position = Vector2(1405, -454)
+
+[node name="Torch2" parent="Torches/Office/TL" instance=ExtResource("8_7shvu")]
+position = Vector2(1516, -454)
+
+[node name="Torch3" parent="Torches/Office/TL" instance=ExtResource("8_7shvu")]
+position = Vector2(1300, -454)
+
+[node name="Torch4" parent="Torches/Office/TL" instance=ExtResource("8_7shvu")]
+position = Vector2(1185, -452)
+
+[node name="Torch5" parent="Torches/Office/TL" instance=ExtResource("8_7shvu")]
+position = Vector2(1071, -451)
+
+[node name="Torch6" parent="Torches/Office/TL" instance=ExtResource("8_7shvu")]
+position = Vector2(1624, -451)
+
+[node name="TL2" type="Node2D" parent="Torches/Office"]
+position = Vector2(-1026, 1198)
+
+[node name="Torch" parent="Torches/Office/TL2" instance=ExtResource("8_7shvu")]
+position = Vector2(1405, -454)
+
+[node name="Torch2" parent="Torches/Office/TL2" instance=ExtResource("8_7shvu")]
+position = Vector2(1516, -454)
+
+[node name="Torch3" parent="Torches/Office/TL2" instance=ExtResource("8_7shvu")]
+position = Vector2(1300, -454)
+
+[node name="Torch4" parent="Torches/Office/TL2" instance=ExtResource("8_7shvu")]
+position = Vector2(1185, -452)
+
+[node name="Torch5" parent="Torches/Office/TL2" instance=ExtResource("8_7shvu")]
+position = Vector2(1071, -451)
+
+[node name="Torch6" parent="Torches/Office/TL2" instance=ExtResource("8_7shvu")]
+position = Vector2(1624, -451)
+
+[node name="First" type="Node" parent="Torches"]
+
+[node name="TD" type="Node2D" parent="Torches/First"]
+position = Vector2(543, -840)
+rotation = 1.5708
+
+[node name="Torch" parent="Torches/First/TD" instance=ExtResource("8_7shvu")]
+position = Vector2(1405, -454)
+
+[node name="Torch2" parent="Torches/First/TD" instance=ExtResource("8_7shvu")]
+position = Vector2(1516, -454)
+
+[node name="Torch3" parent="Torches/First/TD" instance=ExtResource("8_7shvu")]
+position = Vector2(1300, -454)
+
+[node name="Torch4" parent="Torches/First/TD" instance=ExtResource("8_7shvu")]
+position = Vector2(1185, -452)
+
+[node name="Torch5" parent="Torches/First/TD" instance=ExtResource("8_7shvu")]
+position = Vector2(1071, -451)
+
+[node name="Torch6" parent="Torches/First/TD" instance=ExtResource("8_7shvu")]
+position = Vector2(1624, -451)
+
+[node name="Tutorial" type="Node" parent="Torches"]
+
+[node name="TL" type="Node2D" parent="Torches/Tutorial"]
+position = Vector2(-1040, 564)
+
+[node name="Torch" parent="Torches/Tutorial/TL" instance=ExtResource("8_7shvu")]
+position = Vector2(1405, -454)
+
+[node name="Torch2" parent="Torches/Tutorial/TL" instance=ExtResource("8_7shvu")]
+position = Vector2(1516, -454)
+
+[node name="Torch3" parent="Torches/Tutorial/TL" instance=ExtResource("8_7shvu")]
+position = Vector2(1300, -454)
+
+[node name="Torch4" parent="Torches/Tutorial/TL" instance=ExtResource("8_7shvu")]
+position = Vector2(1185, -452)
+
+[node name="Torch5" parent="Torches/Tutorial/TL" instance=ExtResource("8_7shvu")]
+position = Vector2(1071, -451)
+
+[node name="Torch6" parent="Torches/Tutorial/TL" instance=ExtResource("8_7shvu")]
+position = Vector2(1624, -451)
+
+[node name="TL2" type="Node2D" parent="Torches/Tutorial"]
+position = Vector2(-367, 584)
+
+[node name="Torch" parent="Torches/Tutorial/TL2" instance=ExtResource("8_7shvu")]
+position = Vector2(1405, -454)
+
+[node name="Torch2" parent="Torches/Tutorial/TL2" instance=ExtResource("8_7shvu")]
+position = Vector2(1516, -454)
+
+[node name="Torch3" parent="Torches/Tutorial/TL2" instance=ExtResource("8_7shvu")]
+position = Vector2(1300, -454)
+
+[node name="Torch4" parent="Torches/Tutorial/TL2" instance=ExtResource("8_7shvu")]
+position = Vector2(1185, -452)
+
+[node name="Torch5" parent="Torches/Tutorial/TL2" instance=ExtResource("8_7shvu")]
+position = Vector2(1071, -451)
+
+[node name="Torch6" parent="Torches/Tutorial/TL2" instance=ExtResource("8_7shvu")]
+position = Vector2(1624, -451)

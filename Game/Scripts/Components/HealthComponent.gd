@@ -3,7 +3,7 @@ extends Node2D
 class_name HealthComponent 
 
 #======================================== 	Variables 	==================================
-@export var MAX_HEALTH := 3
+@export var MAX_HEALTH := 5
 
 var health : float
 

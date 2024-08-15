@@ -3,11 +3,13 @@ extends CanvasLayer
 @onready var health1 = $Health_1
 @onready var health2 = $Health_2
 @onready var health3 = $Health_3
+@onready var health4 = $Health_4
+@onready var health5 = $Health_5
 
 @onready var mainWorld = $VBoxContainer/MainWorld
 @onready var sideWorld = $VBoxContainer/SideWorld
 
-var currHealth = 3
+var currHealth = 5
 
 var isRealmCooldown = false
 
@@ -26,6 +28,8 @@ func _ready():
 	health1.show()
 	health2.show()
 	health3.show()
+	health4.show()
+	health5.show()
 	
 	mainWorld.show()
 	sideWorld.hide()
@@ -46,6 +50,10 @@ func changeRealm(newRealm):
 func loseHealth():
 	currHealth -= 1
 	match currHealth:
+		4:
+			health5.hide()
+		3:
+			health4.hide()
 		2:
 			health3.hide()
 		1:
